@@ -54,11 +54,12 @@
               required
             />
           </div>
-          <button type="submit" class="btn">Login</button>
+          <button type="submit" class="btn" id="loginButton">Login</button>
           <p class="toggle-form">
             Don't have an account?
             <button id="showRegisterForm">Register</button>
           </p>
+          <p id="loginResult" class="result-message"></p>
         </form>
 
         <form id="registerForm">
@@ -103,11 +104,14 @@
               <option value="Neptune">Neptune</option>
             </select>
           </div>
-          <button type="submit" class="btn">Create User</button>
+          <button type="submit" class="btn" id="registerButton">
+            Create User
+          </button>
           <p class="toggle-form">
             Already have an account?
             <button id="showLoginForm">Log In</button>
           </p>
+          <p id="registerResult" class="result-message"></p>
         </form>
       </div>
 
