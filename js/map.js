@@ -35,23 +35,6 @@ function wrapCoordinate(coord, max) {
   return (coord + max) % max;
 }
 
-function initializeMap() {
-  const mapElement = document.getElementById("map");
-  mapElement.innerHTML = "";
-  const gridSize = 1000;
-
-  for (let y = -gridSize / 2; y < gridSize / 2; y++) {
-    for (let x = -gridSize / 2; x < gridSize / 2; x++) {
-      const sector = document.createElement("div");
-      sector.classList.add("sector", "empty");
-      sector.dataset.coords = `${x},${y}`;
-      mapElement.appendChild(sector);
-    }
-  }
-}
-
-initializeMap();
-
 // Render Map to Fill Screen
 function renderMap(map, offsetX = 0, offsetY = 0) {
   const mapContainer = document.getElementById("map");
@@ -68,11 +51,7 @@ function renderMap(map, offsetX = 0, offsetY = 0) {
   mapContainer.style.gridTemplateRows = `repeat(${sectorsY}, ${BASE_SECTOR_SIZE}px)`;
 
   // Dynamically adjust grid gap based on zoom level
-  if (BASE_SECTOR_SIZE >= 50) {
-    mapContainer.style.gridGap = "0"; // No gap for zoomed-in view
-  } else {
-    mapContainer.style.gridGap = "2px"; // Small gap for default and zoomed-out views
-  }
+  mapContainer.style.gridGap = BASE_SECTOR_SIZE >= 50 ? "0" : "2px";
 
   // Render visible sectors
   for (let y = 0; y < sectorsY; y++) {
@@ -202,3 +181,9 @@ function hideCoordinates() {
 // Attach event listeners for mouse tracking
 mapContainer.addEventListener("mousemove", showCoordinates);
 mapContainer.addEventListener("mouseleave", hideCoordinates);
+
+// Integration with Sidebar
+document.getElementById("mapButton").addEventListener("click", () => {
+  document.getElementById("map-container").classList.add("visible");
+  renderMap(spaceMap, offsetX, offsetY); // Re-render map when toggling view
+});

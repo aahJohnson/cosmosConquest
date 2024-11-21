@@ -1,3 +1,39 @@
+/* Prevent Scrolling */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent page scrolling */
+  height: 100%; /* Ensure full height */
+  width: 100%; /* Ensure full width */
+}
+
+/* Map Container */
+#map-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  background-color: #000; /* Matches the rest of the UI */
+  overflow: hidden; /* Ensure no overflow from child elements */
+}
+
+/* Map Container */
+#map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* Place the map behind all other content */
+  display: none; /* Hidden by default */
+}
+
+#map-container.visible {
+  display: block; /* Show when the map tab is active */
+}
+
 /* Map */
 #map {
   display: grid;
@@ -12,18 +48,70 @@
   cursor: grabbing;
 }
 
+/* Coordinate Box */
+#coordinate-box {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.8); /* Transparent black background */
+  color: #00ffff; /* Futuristic cyan text */
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9em;
+  border: 1px solid #444;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  z-index: 3; /* Ensure it's above the map */
+  pointer-events: none; /* Ignore mouse events */
+  display: none; /* Hidden by default */
+}
+
 /* Sector Styling */
 .sector {
   background-color: #333;
   border: 1px solid #444; /* Keep borders visible at all zoom levels */
 }
 
-#coordinate-box {
-  position: absolute;
-  bottom: 10px;
+.sector.empty {
+  background: rgba(20, 20, 20, 0.5);
+}
+
+.sector.planet {
+  background: url("../media/planet.webp") center/contain no-repeat;
+}
+
+.sector.asteroids {
+  background: url("../media/asteriod.webp") center/contain no-repeat;
+}
+
+.sector.nebula {
+  background: url("../media/nebula.webp") center/contain no-repeat;
+}
+
+/* Zoom Controls */
+#zoom-controls {
+  position: fixed;
+  bottom: 60px;
   right: 10px;
-  padding: 5px 10px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border-radius: 4px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+#zoom-controls button {
+  background: rgba(0, 0, 0, 0.8);
+  color: #00ffff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9em;
+  transition: background 0.2s, color 0.2s;
+}
+
+#zoom-controls button:hover {
+  background: rgba(50, 50, 50, 0.9);
+  color: #ffffff;
 }

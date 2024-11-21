@@ -11,10 +11,16 @@
   <body>
     <!-- Sidebar -->
     <div id="sidebar">
-      <button id="profileButton">Profile</button>
-      <button id="buildingsButton">Buildings</button>
-      <button id="troopsButton">Troops</button>
-      <button id="mapButton">Map</button>
+      <button id="profileButton" class="nav-button" data-section="profile">
+        Profile
+      </button>
+      <button id="buildingsButton" class="nav-button" data-section="buildings">
+        Buildings
+      </button>
+      <button id="troopsButton" class="nav-button" data-section="troops">
+        Troops
+      </button>
+      <button id="mapButton" class="nav-button" data-section="map">Map</button>
     </div>
 
     <!-- Resource Bar -->
@@ -36,6 +42,7 @@
               type="text"
               id="loginUsername"
               placeholder="Enter username"
+              required
             />
           </div>
           <div class="form-group">
@@ -44,9 +51,10 @@
               type="password"
               id="loginPassword"
               placeholder="Enter password"
+              required
             />
           </div>
-          <button type="button" class="btn" id="loginButton">Login</button>
+          <button type="submit" class="btn">Login</button>
           <p class="toggle-form">
             Don't have an account?
             <button id="showRegisterForm">Register</button>
@@ -61,11 +69,17 @@
               type="text"
               id="registerUsername"
               placeholder="Enter username"
+              required
             />
           </div>
           <div class="form-group">
             <label for="registerEmail">Email:</label>
-            <input type="email" id="registerEmail" placeholder="Enter email" />
+            <input
+              type="email"
+              id="registerEmail"
+              placeholder="Enter email"
+              required
+            />
           </div>
           <div class="form-group">
             <label for="registerPassword">Password:</label>
@@ -73,41 +87,68 @@
               type="password"
               id="registerPassword"
               placeholder="Enter password"
+              required
             />
           </div>
           <div class="form-group">
-            <label for="registerRole">Role:</label>
-            <select id="registerRole">
+            <label for="registerRole">Choose Your Origin:</label>
+            <select id="registerRole" required>
+              <option value="Mercury">Mercury</option>
+              <option value="Venus">Venus</option>
               <option value="Earth">Earth</option>
               <option value="Mars">Mars</option>
-              <option value="Venus">Venus</option>
               <option value="Jupiter">Jupiter</option>
+              <option value="Saturn">Saturn</option>
+              <option value="Uranus">Uranus</option>
+              <option value="Neptune">Neptune</option>
             </select>
           </div>
-          <button type="button" class="btn" id="registerButton">
-            Create User
-          </button>
+          <button type="submit" class="btn">Create User</button>
           <p class="toggle-form">
-            Already have an account? <button id="showLoginForm">Log In</button>
+            Already have an account?
+            <button id="showLoginForm">Log In</button>
           </p>
         </form>
+      </div>
+
+      <!-- Profile View -->
+      <div id="profile-view" class="view hidden">
+        <h2>Profile</h2>
+        <p id="player-name">Name:</p>
+        <p id="player-role">Role:</p>
+        <p id="player-progress">Building Progress:</p>
+      </div>
+
+      <!-- Buildings View -->
+      <div id="buildings-view" class="view hidden">
+        <h2>Buildings</h2>
+        <div id="buildings-list">
+          <!-- Buildings will be dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Troops View -->
+      <div id="troops-view" class="view hidden">
+        <h2>Troop Management</h2>
+        <p>List and manage your troops here.</p>
       </div>
     </div>
 
     <!-- Map -->
-    <div id="map"></div>
-    <div id="coordinate-box" style="display: none">Coords:</div>
-
-    <!-- Zoom Buttons -->
-    <div id="zoom-controls">
-      <button id="zoom-in">Zoom In</button>
-      <button id="zoom-out">Zoom Out</button>
+    <div id="map-container" class="hidden">
+      <div id="map"></div>
+      <div id="coordinate-box" style="display: none">Coords:</div>
+      <!-- Zoom Buttons -->
+      <div id="zoom-controls">
+        <button id="zoom-in">Zoom In</button>
+        <button id="zoom-out">Zoom Out</button>
+      </div>
     </div>
 
     <!-- Scripts -->
     <script src="js/factions.js"></script>
     <script src="js/game.js"></script>
     <script src="js/map.js"></script>
-    <script src="js/ui.js"></script>
+    <script src="js/ui.js" type="module"></script>
   </body>
 </html>
