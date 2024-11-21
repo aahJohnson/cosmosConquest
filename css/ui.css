@@ -1,0 +1,101 @@
+/* Authentication Forms */
+#authContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+#authContainer h2 {
+  color: #00bcd4;
+  text-align: center;
+}
+
+#authContainer .form-group {
+  margin-bottom: 15px;
+}
+
+#authContainer .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+#authContainer .form-group input,
+#authContainer .form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  background: #333;
+  color: white;
+}
+
+#authContainer .btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #00bcd4;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#authContainer .btn:hover {
+  background: #00a8c0;
+}
+
+#authContainer .toggle-form {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#authContainer .toggle-form button {
+  background: none;
+  border: none;
+  color: #00bcd4;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#profile-view {
+  padding: 20px;
+  color: #ddd;
+  background: #111; /* Matches the rest of the UI */
+}
+
+#profile-content {
+  margin-top: 20px;
+}
+
+#profile-content p,
+#profile-content li {
+  font-size: 1.1em;
+  margin: 8px 0;
+}
+
+#profile-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#profile-content ul li {
+  margin: 5px 0;
+  padding: 5px;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+#profile-content strong {
+  color: #00ffff; /* Highlight key labels */
+}

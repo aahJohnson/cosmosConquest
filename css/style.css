@@ -1,0 +1,63 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: white;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Sidebar Styling */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  z-index: 10;
+}
+
+#sidebar button {
+  background: #333;
+  color: white;
+  border: none;
+  margin: 10px 0;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#sidebar button:hover {
+  background: #555;
+}
+
+#sidebar button.active {
+  background: #00bcd4;
+  color: black;
+  font-weight: bold;
+}
+
+/* Resource Bar */
+#resourceBar {
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  height: 50px;
+  background: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 10;
+}
+
+#resourceBar span {
+  font-size: 16px;
+}
