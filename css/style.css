@@ -48,9 +48,10 @@ body {
 }
 
 #sidebar button.active {
-  background: #00bcd4;
-  color: #1c1c1c;
-  box-shadow: 0 0 15px #00bcd4;
+  background: #00bcd4; /* Highlighted background */
+  color: #000; /* Text color when active */
+  font-weight: bold; /* Make it stand out */
+  box-shadow: 0 0 10px #00bcd4; /* Add glow effect */
 }
 
 /* Resource Bar Styling */

@@ -19,15 +19,27 @@ if (!showRegisterForm)
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("profileButton").addEventListener("click", () => {
+    setActiveButton("profileButton");
+    clearViews(); // Clear other views
     loadProfilePage();
   });
 
   document.getElementById("buildingsButton").addEventListener("click", () => {
+    setActiveButton("buildingsButton");
+    clearViews(); // Clear other views
     loadBuildingsPage();
   });
 
   document.getElementById("troopsButton").addEventListener("click", () => {
+    setActiveButton("troopsButton");
+    clearViews(); // Clear other views
     loadTroopsPage();
+  });
+
+  document.getElementById("mapButton").addEventListener("click", () => {
+    setActiveButton("mapButton");
+    clearViews(); // Clear other views
+    loadMapPage(); // Explicitly load the map view
   });
 });
 
@@ -140,7 +152,20 @@ if (showLoginForm && showRegisterForm) {
   });
 }
 
-// Load Profile Page
+function setActiveButton(buttonId) {
+  // Remove 'active' class from all sidebar buttons
+  document.querySelectorAll("#sidebar button").forEach((button) => {
+    button.classList.remove("active");
+  });
+
+  // Add 'active' class to the clicked button
+  const activeButton = document.getElementById(buttonId);
+  if (activeButton) {
+    activeButton.classList.add("active");
+  }
+}
+
+// Load Pages
 function loadProfilePage() {
   const content = document.getElementById("content");
   content.innerHTML = `
@@ -167,4 +192,29 @@ function loadTroopsPage() {
       <p>Manage your troops here.</p>
       <!-- Add troop management logic -->
     `;
+}
+
+function loadMapPage() {
+  // Clear other content
+  document.getElementById("content").style.display = "none";
+  document.getElementById("map").style.display = "block"; // Show map
+
+  console.log("Map view loaded");
+}
+
+function hideMap() {
+  document.getElementById("map").style.display = "none"; // Hide map
+  document.getElementById("content").style.display = "block"; // Show content
+}
+
+function clearViews() {
+  console.log("Clearing views");
+  document.querySelectorAll(".view").forEach((view) => {
+    view.classList.add("hidden"); // Hide all other views
+    view.classList.remove("active");
+  });
+
+  // Ensure the map is initially hidden when clearing
+  document.getElementById("map").style.display = "none";
+  document.getElementById("content").style.display = "block";
 }
