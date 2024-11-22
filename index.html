@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cosmos Conquest</title>
+    <title>OuterSide.io</title>
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/map.css" />
@@ -76,17 +76,11 @@
               type="text"
               id="registerUsername"
               placeholder="Enter username"
-              required
             />
           </div>
           <div class="form-group">
             <label for="registerEmail">Email:</label>
-            <input
-              type="email"
-              id="registerEmail"
-              placeholder="Enter email"
-              required
-            />
+            <input type="email" id="registerEmail" placeholder="Enter email" />
           </div>
           <div class="form-group">
             <label for="registerPassword">Password:</label>
@@ -94,30 +88,30 @@
               type="password"
               id="registerPassword"
               placeholder="Enter password"
-              required
             />
           </div>
-          <div class="form-group">
-            <label for="registerRole">Choose Your Origin:</label>
-            <select id="registerRole" required>
-              <option value="Mercury">Mercury</option>
-              <option value="Venus">Venus</option>
-              <option value="Earth">Earth</option>
-              <option value="Mars">Mars</option>
-              <option value="Jupiter">Jupiter</option>
-              <option value="Saturn">Saturn</option>
-              <option value="Uranus">Uranus</option>
-              <option value="Neptune">Neptune</option>
-            </select>
+
+          <div id="role-carousel">
+            <h3>Choose Your Role</h3>
+            <div class="carousel">
+              <button id="prevRole" class="carousel-nav">&lt;</button>
+              <div class="carousel-content">
+                <!-- Roles dynamically populated -->
+              </div>
+              <button id="nextRole" class="carousel-nav">&gt;</button>
+            </div>
+            <div id="role-details">
+              <h4 id="role-name">Role Name</h4>
+              <p id="role-description">Role description goes here...</p>
+            </div>
           </div>
-          <button type="submit" class="btn" id="registerButton">
+
+          <button type="button" class="btn" id="registerButton">
             Create User
           </button>
           <p class="toggle-form">
-            Already have an account?
-            <button id="showLoginForm">Log In</button>
+            Already have an account? <button id="showLoginForm">Log In</button>
           </p>
-          <p id="registerResult" class="result-message"></p>
         </form>
       </div>
 

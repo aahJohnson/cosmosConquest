@@ -175,3 +175,92 @@ select:focus {
   border: 1px solid $primary-purple;
   box-shadow: 0 0 10px $primary-purple;
 }
+
+#role-carousel {
+  text-align: center;
+  margin: 20px 0;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: $secondary-purple;
+  }
+
+  .carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .carousel-nav {
+      background: transparent;
+      color: $primary-purple;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+
+      &:hover {
+        background: $background-light;
+        box-shadow: 0 0 20px $background-light;
+      }
+    }
+
+    .carousel-content {
+      display: flex;
+      overflow: hidden;
+      width: 80%;
+      justify-content: center;
+
+      .role-card {
+        min-width: 150px;
+        text-align: center;
+        margin: 0 5px;
+        padding: 10px;
+        border-radius: 8px;
+        background: #222;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: 0 0 15px $primary-purple;
+        }
+
+        img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        h4 {
+          color: $primary-purple;
+          font-size: 1rem;
+          margin: 5px 0;
+        }
+
+        p {
+          font-size: 0.8rem;
+          color: #ddd;
+        }
+      }
+    }
+  }
+
+  #role-details {
+    margin-top: 15px;
+
+    h4 {
+      font-size: 1.2rem;
+      color: $primary-purple;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+  }
+}

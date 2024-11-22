@@ -42,6 +42,3 @@ Thumbs.db
 
 # Debugger configurations
 *.launch.json
-
-# Optional if you're using GitHub Codespaces
-.github/codespaces/

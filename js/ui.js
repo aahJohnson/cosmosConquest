@@ -242,3 +242,84 @@ function clearContent() {
   mapContainer.classList.remove("visible");
   mapContainer.classList.add("hidden");
 }
+
+const roles = [
+  {
+    name: "Mercury",
+    description: "Strategists excelling in guerrilla tactics and hidden bases.",
+    image: "media/planets/mercury.webp",
+  },
+  {
+    name: "Venus",
+    description: "Strong on diplomacy and trade.",
+    image: "media/planets/venus.webp",
+  },
+  {
+    name: "Earth",
+    description:
+      "Balanced approach to defense, resource gathering, and technology.",
+    image: "media/planets/earth.webp",
+  },
+  {
+    name: "Mars",
+    description: "High focus on energy production and troop strength.",
+    image: "media/planets/mars.webp",
+  },
+  {
+    name: "Jupiter",
+    description: "Immense strength in defense and resource extraction.",
+    image: "media/planets/jupiter.webp",
+  },
+  {
+    name: "Saturn",
+    description: "Masters of fleet upgrades and space navigation.",
+    image: "media/planets/saturn.webp",
+  },
+  {
+    name: "Uranus",
+    description: "Focused on stealth and energy efficiency.",
+    image: "media/planets/uranus.webp",
+  },
+  {
+    name: "Neptune",
+    description: "Experts in water resources and advanced research.",
+    image: "media/planets/neptune.webp",
+  },
+];
+
+let currentRoleIndex = 0;
+
+function updateRoleDisplay() {
+  const role = roles[currentRoleIndex];
+  const carouselContent = document.querySelector(".carousel-content");
+
+  // Update role details
+  document.getElementById("role-name").textContent = role.name;
+  document.getElementById("role-description").textContent = role.description;
+
+  // Create role cards dynamically
+  carouselContent.innerHTML = roles
+    .map(
+      (role, index) => `
+    <div class="role-card ${index === currentRoleIndex ? "active" : ""}">
+    <h4>${role.name}</h4>
+      <img src="${role.image}" alt="${role.name}">
+    </div>
+  `
+    )
+    .join("");
+}
+
+// Navigation logic
+document.getElementById("prevRole").addEventListener("click", () => {
+  currentRoleIndex = (currentRoleIndex - 1 + roles.length) % roles.length;
+  updateRoleDisplay();
+});
+
+document.getElementById("nextRole").addEventListener("click", () => {
+  currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+  updateRoleDisplay();
+});
+
+// Update the role picker on page load
+updateRoleDisplay();
