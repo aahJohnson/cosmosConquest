@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.getElementById("mapButton").addEventListener("click", () => {
+  const mapContainer = document.getElementById("map-container");
+  mapContainer.classList.toggle("visible");
+  // Ensure the map retains grid display
+  mapContainer.style.display = "grid";
+});
+
 // Handle user registration form submission
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {
@@ -195,11 +202,21 @@ function loadTroopsPage() {
 }
 
 function loadMapPage() {
-  // Clear other content
-  document.getElementById("content").style.display = "none";
-  document.getElementById("map").style.display = "block"; // Show map
+  console.log("Loading map...");
+  clearContent(); // Clear previous content
+  if (!currentUser) {
+    console.error("No user is logged in.");
+    return;
+  }
 
-  console.log("Map view loaded");
+  const mapContainer = document.getElementById("map-container");
+  mapContainer.classList.remove("hidden"); // Ensure the map is visible
+  mapContainer.classList.add("visible");
+
+  const mapElement = document.getElementById("map");
+  mapElement.style.display = "grid"; // Show the map
+
+  renderMap(spaceMap, offsetX, offsetY); // Render the map
 }
 
 function hideMap() {
@@ -217,4 +234,11 @@ function clearViews() {
   // Ensure the map is initially hidden when clearing
   document.getElementById("map").style.display = "none";
   document.getElementById("content").style.display = "block";
+}
+
+function clearContent() {
+  document.getElementById("content").innerHTML = ""; // Clear the content area
+  const mapContainer = document.getElementById("map-container");
+  mapContainer.classList.remove("visible");
+  mapContainer.classList.add("hidden");
 }

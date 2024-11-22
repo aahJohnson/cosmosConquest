@@ -15,8 +15,8 @@ form h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 26px;
-  color: #00bcd4;
-  text-shadow: 0 0 15px #00bcd4;
+  color: #a020f0;
+  text-shadow: 0 0 15px #a020f0;
 }
 
 .form-group {
@@ -45,9 +45,9 @@ form h2 {
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #00bcd4;
+  border-color: #a020f0;
   outline: none;
-  box-shadow: 0 0 10px #00bcd4;
+  box-shadow: 0 0 10px #a020f0;
 }
 
 .btn {
@@ -55,7 +55,7 @@ form h2 {
   padding: 12px;
   font-size: 18px;
   color: white;
-  background: #00bcd4;
+  background: #6a0dad;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -64,9 +64,9 @@ form h2 {
 }
 
 .btn:hover {
-  background: #0097a7;
+  background: #a020f0;
   transform: scale(1.05);
-  box-shadow: 0 0 15px #00bcd4;
+  box-shadow: 0 0 15px #a020f0;
 }
 
 /* Toggle Form Links */
@@ -80,14 +80,14 @@ form h2 {
 .toggle-form button {
   background: none;
   border: none;
-  color: #00bcd4;
+  color: #6a0dad;
   cursor: pointer;
   text-decoration: underline;
   font-size: 14px;
 }
 
 .toggle-form button:hover {
-  color: #0088cc;
+  color: #a020f0;
 }
 
 /* Profile View */
@@ -107,8 +107,8 @@ form h2 {
 }
 
 #profile-content strong {
-  color: #00ffff; /* Highlight key labels */
-  text-shadow: 0 0 10px #00ffff;
+  color: #a020f0; /* Highlight key labels */
+  text-shadow: 0 0 10px #a020f0;
 }
 
 /* Buildings List */
@@ -131,13 +131,13 @@ form h2 {
 
 .building:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(0, 128, 128, 0.7);
+  box-shadow: 0 0 20px #a020f0;
 }
 
 .building h3 {
   margin: 0 0 10px 0;
-  color: #00ffff;
-  text-shadow: 0 0 10px #00ffff;
+  color: #a020f0;
+  text-shadow: 0 0 10px #a020f0;
 }
 
 .building p {
@@ -146,7 +146,7 @@ form h2 {
 }
 
 .upgrade-button {
-  background: #00ffff;
+  background: #6a0dad;
   color: #111;
   border: none;
   padding: 10px 15px;
@@ -156,20 +156,22 @@ form h2 {
 }
 
 .upgrade-button:hover {
-  background: #008080;
+  background: #a020f0;
   transform: scale(1.05);
-  box-shadow: 0 0 10px #00ffff;
+  box-shadow: 0 0 10px #a020f0;
 }
 
 /* Login/Register Form Glows */
 form h2,
 .toggle-form button:hover {
-  text-shadow: 0 0 15px #00bcd4;
+  text-shadow: 0 0 15px #a020f0;
 }
 
 /* Consistent Form Input Glow */
 input:focus,
 select:focus {
-  border: 1px solid #00bcd4;
-  box-shadow: 0 0 10px #00bcd4;
+  border: 1px solid #a020f0;
+  box-shadow: 0 0 10px #a020f0;
 }
+
+/*# sourceMappingURL=ui.css.map */

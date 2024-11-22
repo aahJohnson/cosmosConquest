@@ -8,15 +8,17 @@ body {
   width: 100%; /* Ensure full width */
 }
 
-/* Map Container */
-#map-view {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  background-color: #000; /* Matches the rest of the UI */
-  overflow: hidden; /* Ensure no overflow from child elements */
+/* Map Styling */
+#map {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 12px); /* Dynamically create columns */
+  grid-template-rows: repeat(auto-fill, 12px); /* Dynamically create rows */
+  gap: 1px; /* Optional gap between sectors */
+  width: 100%; /* Ensure it fills its parent container */
+  height: 100%; /* Ensure it fills its parent container */
+  position: relative; /* Relative to its parent container */
+  background-color: black; /* Map background */
+  z-index: 1; /* Below overlay elements like zoom controls */
 }
 
 /* Map Container */
@@ -26,50 +28,21 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0; /* Place the map behind all other content */
+  z-index: 0;
   display: none; /* Hidden by default */
+  overflow: hidden; /* Prevent content overflow */
 }
 
 #map-container.visible {
-  display: block; /* Show when the map tab is active */
-}
-
-/* Map */
-#map {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  cursor: grab;
-  background-color: #000; /* Black background for space */
-  grid-gap: 0; /* No gap between tiles */
-}
-
-#map:active {
-  cursor: grabbing;
-}
-
-/* Coordinate Box */
-#coordinate-box {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  padding: 8px 12px;
-  background: rgba(0, 0, 0, 0.8); /* Transparent black background */
-  color: #00ffff; /* Futuristic cyan text */
-  font-family: "Orbitron", sans-serif;
-  font-size: 0.9em;
-  border: 1px solid #444;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-  z-index: 3; /* Ensure it's above the map */
-  pointer-events: none; /* Ignore mouse events */
-  display: none; /* Hidden by default */
+  display: block; /* Show when the map is active */
 }
 
 /* Sector Styling */
 .sector {
   background-color: #333;
-  border: 1px solid #444; /* Keep borders visible at all zoom levels */
+  border: 1px solid #444;
+  width: 12px;
+  height: 12px;
 }
 
 .sector.empty {
@@ -88,30 +61,47 @@ body {
   background: url("../media/nebula.webp") center/contain no-repeat;
 }
 
+/* Coordinate Box */
+#coordinate-box {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  background: #1f1f1f;
+  color: #e0e0e0;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-shadow: 0 0 10px #a020f0;
+  z-index: 1000; /* Ensure it is always above other elements */
+}
+
 /* Zoom Controls */
 #zoom-controls {
-  position: fixed;
-  bottom: 60px;
+  position: absolute;
+  bottom: 10px;
   right: 10px;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
+  z-index: 1000;
 }
 
 #zoom-controls button {
-  background: rgba(0, 0, 0, 0.8);
-  color: #00ffff;
-  border: 1px solid #444;
-  border-radius: 5px;
-  margin: 5px 0;
-  padding: 8px 12px;
+  background: #333;
+  color: #e0e0e0;
+  border: none;
+  margin: 10px 0;
+  padding: 12px;
   cursor: pointer;
-  font-family: "Orbitron", sans-serif;
-  font-size: 0.9em;
-  transition: background 0.2s, color 0.2s;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 #zoom-controls button:hover {
-  background: rgba(50, 50, 50, 0.9);
-  color: #ffffff;
+  background: #a020f0;
+  color: #1c1c1c;
+  box-shadow: 0 0 15px #a020f0;
+  transform: scale(1.05);
 }
+
+/*# sourceMappingURL=map.css.map */
