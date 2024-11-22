@@ -74,20 +74,10 @@ body {
   text-shadow: 0 0 10px $primary-purple;
 }
 
-/* Main Content Area */
-#content {
-  margin-left: 250px;
-  margin-top: 60px;
-  padding: 20px;
-  overflow: auto;
-  height: calc(100vh - 60px);
-  box-sizing: border-box;
-}
-
 .hidden {
   display: none !important;
 }
 
 .visible {
-  display: inherit;
+  display: block;
 }

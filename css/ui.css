@@ -129,6 +129,16 @@ form h2 {
   color: #a020f0;
 }
 
+/* Main Content Area */
+#content {
+  margin-left: 250px;
+  margin-top: 60px;
+  padding: 20px;
+  overflow: auto;
+  height: calc(100vh - 60px);
+  box-sizing: border-box;
+}
+
 /* Profile View */
 #profile-view {
   padding: 20px;
@@ -150,54 +160,87 @@ form h2 {
   text-shadow: 0 0 10px #a020f0;
 }
 
-/* Buildings List */
+/* Buildings */
+#buildings-view h2 {
+  text-align: center;
+}
+
+#building-categories {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+#building-categories .category-btn {
+  padding: 10px 15px;
+  background: #333;
+  color: #a020f0;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+#building-categories .category-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #1a1a1a;
+}
+#building-categories .category-btn.active {
+  background: #8e24aa;
+  color: #fff;
+}
+
 #buildings-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
+  justify-content: center;
 }
-
-.building {
+#buildings-list .building {
   background: #222;
   border: 1px solid #444;
   padding: 15px;
-  border-radius: 5px;
-  width: calc(33.33% - 20px);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  width: calc(25% - 20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  text-align: center;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
-
-.building:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px #a020f0;
-}
-
-.building h3 {
-  margin: 0 0 10px 0;
+#buildings-list .building h3 {
   color: #a020f0;
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
   text-shadow: 0 0 10px #a020f0;
 }
-
-.building p {
-  margin: 5px 0;
+#buildings-list .building p {
   color: #ddd;
+  margin: 10px 0;
 }
-
-.upgrade-button {
+#buildings-list .building:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #1a1a1a;
+}
+#buildings-list .building button {
   background: #6a0dad;
-  color: #111;
+  box-shadow: 0 0 10px #6a0dad;
+  color: #fff;
   border: none;
   padding: 10px 15px;
-  cursor: pointer;
   border-radius: 5px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+#buildings-list .building button:hover {
+  background: #a020f0;
+  box-shadow: 0 0 10px #a020f0;
 }
 
-.upgrade-button:hover {
-  background: #a020f0;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #a020f0;
+/* Troops */
+#troops-view h2 {
+  text-align: center;
 }
 
 /* Login/Register Form Glows */

@@ -129,6 +129,16 @@ form h2 {
   color: $primary-purple;
 }
 
+/* Main Content Area */
+#content {
+  margin-left: 250px;
+  margin-top: 60px;
+  padding: 20px;
+  overflow: auto;
+  height: calc(100vh - 60px);
+  box-sizing: border-box;
+}
+
 /* Profile View */
 #profile-view {
   padding: 20px;
@@ -150,54 +160,100 @@ form h2 {
   text-shadow: 0 0 10px $primary-purple;
 }
 
-/* Buildings List */
+/* Buildings */
+#buildings-view {
+  h2 {
+    text-align: center;
+  }
+}
+
+#building-categories {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  .category-btn {
+    padding: 10px 15px;
+    background: #333;
+    color: $primary-purple;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px $background-light;
+    }
+
+    &.active {
+      background: #8e24aa;
+      color: #fff;
+    }
+  }
+}
+
 #buildings-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
+  justify-content: center;
+
+  .building {
+    background: #222;
+    border: 1px solid #444;
+    padding: 15px;
+    border-radius: 8px;
+    width: calc(25% - 20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+    h3 {
+      color: $primary-purple;
+      font-size: 1.2rem;
+      margin: 0 0 10px 0;
+      text-shadow: 0 0 10px $primary-purple;
+    }
+
+    p {
+      color: #ddd;
+      margin: 10px 0;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px $background-light;
+    }
+
+    button {
+      background: $secondary-purple;
+      box-shadow: 0 0 10px $secondary-purple;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: $primary-purple;
+        box-shadow: 0 0 10px $primary-purple;
+      }
+    }
+  }
 }
 
-.building {
-  background: #222;
-  border: 1px solid #444;
-  padding: 15px;
-  border-radius: 5px;
-  width: calc(33.33% - 20px);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.building:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px $primary-purple;
-}
-
-.building h3 {
-  margin: 0 0 10px 0;
-  color: $primary-purple;
-  text-shadow: 0 0 10px $primary-purple;
-}
-
-.building p {
-  margin: 5px 0;
-  color: #ddd;
-}
-
-.upgrade-button {
-  background: $secondary-purple;
-  color: #111;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.upgrade-button:hover {
-  background: $primary-purple;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px $primary-purple;
+/* Troops */
+#troops-view {
+  h2 {
+    text-align: center;
+  }
 }
 
 /* Login/Register Form Glows */

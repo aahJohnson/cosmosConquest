@@ -8,6 +8,10 @@ const registerForm = document.getElementById("registerForm");
 const loginForm = document.getElementById("loginForm");
 const showLoginForm = document.getElementById("showLoginForm");
 const showRegisterForm = document.getElementById("showRegisterForm");
+const content = document.getElementById("content");
+const buildingsView = document.querySelector("#buildings-view");
+const buildingsList = document.getElementById("buildings-list");
+const troopsView = document.querySelector("#troops-view");
 
 // Check for all required elements
 if (!registerForm) console.error("Error: registerForm not found in the DOM.");
@@ -42,6 +46,68 @@ document.addEventListener("DOMContentLoaded", () => {
     loadMapPage(); // Explicitly load the map view
   });
 });
+
+// Profile page
+function loadProfilePage() {
+  content.innerHTML = `
+      <h2>Profile of ${currentUser.username}</h2>
+      <p>Origin: ${currentUser.role}</p>
+      <p>Moons: ${currentUser.building_progress}</p>
+    `;
+}
+
+// Buildings page
+function loadBuildingsPage() {
+  content.innerHTML = "";
+
+  if (buildingsView) {
+    // Append the buildings-view element to the content container
+    content.appendChild(buildingsView);
+
+    // Ensure it's visible
+    buildingsView.classList.remove("hidden");
+    buildingsView.classList.add("active");
+
+    // Call renderBuildings to populate the buildings list
+    renderBuildings();
+  } else {
+    console.error("Buildings view not found!");
+  }
+  renderBuildings();
+}
+
+// Troops page
+function loadTroopsPage() {
+  content.innerHTML = "";
+
+  if (buildingsView) {
+    content.appendChild(troopsView);
+
+    troopsView.classList.remove("hidden");
+    troopsView.classList.add("active");
+  } else {
+    console.error("Troops view not found!");
+  }
+}
+
+// Map page
+function loadMapPage() {
+  console.log("Loading map...");
+  clearContent(); // Clear previous content
+  if (!currentUser) {
+    console.error("No user is logged in.");
+    return;
+  }
+
+  const mapContainer = document.getElementById("map-container");
+  mapContainer.classList.remove("hidden"); // Ensure the map is visible
+  mapContainer.classList.add("visible");
+
+  const mapElement = document.getElementById("map");
+  mapElement.style.display = "grid"; // Show the map
+
+  renderMap(spaceMap, offsetX, offsetY); // Render the map
+}
 
 document.getElementById("mapButton").addEventListener("click", () => {
   const mapContainer = document.getElementById("map-container");
@@ -162,61 +228,191 @@ if (showLoginForm && showRegisterForm) {
 function setActiveButton(buttonId) {
   // Remove 'active' class from all sidebar buttons
   document.querySelectorAll("#sidebar button").forEach((button) => {
-    button.classList.remove("active");
+    button.classList.remove("visible");
   });
 
   // Add 'active' class to the clicked button
   const activeButton = document.getElementById(buttonId);
   if (activeButton) {
-    activeButton.classList.add("active");
+    activeButton.classList.add("visible");
   }
 }
 
-// Load Pages
-function loadProfilePage() {
-  const content = document.getElementById("content");
-  content.innerHTML = `
-      <h2>Profile of ${currentUser.username}</h2>
-      <p>Origin: ${currentUser.role}</p>
-      <p>Moons: ${currentUser.building_progress}</p>
+// Handle category buttons
+document.querySelectorAll(".category-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document
+      .querySelectorAll(".category-btn")
+      .forEach((b) => b.classList.remove("visible"));
+    btn.classList.add("visible");
+
+    const category = btn.dataset.category;
+    renderBuildings(category);
+  });
+});
+
+const buildings = [
+  // Resource Management
+  {
+    name: "Solar Array",
+    category: "Resource Management",
+    description: "Produces Energy to power your colony.",
+    level: 0,
+    maxLevel: 20,
+    baseCost: { energy: 100, minerals: 50 },
+    productionRate: (level) => level * 10, // 10 Energy per level
+  },
+
+  {
+    name: "Refinery",
+    category: "Resource Management",
+    description: "Extracts and processes Minerals.",
+    level: 0,
+    maxLevel: 20,
+    baseCost: { minerals: 200, energy: 50 },
+    productionRate: (level) => level * 5, // 5 Minerals per level
+  },
+  {
+    name: "Hydro Plant",
+    category: "Resource Management",
+    description: "Produces Water for sustaining your Settlers.",
+    level: 0,
+    maxLevel: 15,
+    baseCost: { energy: 50, minerals: 100 },
+    productionRate: (level) => level * 3, // 3 Water per level
+  },
+  {
+    name: "Energy Battery",
+    category: "Resource Management",
+    description: "Stores Energy for future use.",
+    level: 0,
+    maxLevel: 20,
+    baseCost: { energy: 50, minerals: 100 },
+    storageCapacity: (level) => level * 100, // Stores 100 Energy per level
+  },
+  {
+    name: "Mineral Depot",
+    category: "Resource Management",
+    description: "Stores Minerals for building and upgrades.",
+    level: 0,
+    maxLevel: 20,
+    baseCost: { minerals: 100, energy: 50 },
+    storageCapacity: (level) => level * 200, // Stores 200 Minerals per level
+  },
+  {
+    name: "Aqua Tank",
+    category: "Resource Management",
+    description: "Stores Water for your population.",
+    level: 0,
+    maxLevel: 15,
+    baseCost: { minerals: 50, energy: 50 },
+    storageCapacity: (level) => level * 150, // Stores 150 Water per level
+  },
+
+  // Population Management
+  {
+    name: "Habitat Dome",
+    category: "Population Management",
+    description: "Increases maximum Settler capacity.",
+    level: 0,
+    maxLevel: 10,
+    baseCost: { water: 200, minerals: 100 },
+    populationCap: (level) => level * 50, // Adds 50 Settlers capacity per level
+  },
+  {
+    name: "Research Lab",
+    category: "Population Management",
+    description: "Unlocks new technologies and boosts efficiency.",
+    level: 0,
+    maxLevel: 10,
+    baseCost: { energy: 300, minerals: 200 },
+    researchBonus: (level) => level * 5, // Placeholder for research effect
+  },
+
+  // Troop Handling
+  {
+    name: "Shipyard",
+    category: "Troop Handling",
+    description: "Produces offensive units for attacking enemies.",
+    level: 0,
+    maxLevel: 20,
+    baseCost: { minerals: 500, energy: 200 },
+    troopOutput: (level) => level * 2, // Produces 2 ships per level
+  },
+  {
+    name: "Satellite Factory",
+    category: "Troop Handling",
+    description: "Produces defensive satellites that orbit your planet.",
+    level: 0,
+    maxLevel: 20,
+    baseCost: { energy: 300, minerals: 300 },
+    defenseOutput: (level) => level * 1, // Produces 1 satellite per level
+  },
+
+  // Defense
+  {
+    name: "Shield Generator",
+    category: "Defense",
+    description: "Reduces damage from incoming attacks.",
+    level: 0,
+    maxLevel: 15,
+    baseCost: { minerals: 700, energy: 300 },
+    defenseBoost: (level) => level * 2, // 2% damage reduction per level
+  },
+  {
+    name: "Turret Network",
+    category: "Defense",
+    description: "Stationary defenses to protect your planet.",
+    level: 0,
+    maxLevel: 15,
+    baseCost: { minerals: 500, energy: 200 },
+    defenseBoost: (level) => level * 3, // 3% damage boost per level
+  },
+  {
+    name: "Sensor Tower",
+    category: "Defense",
+    description: "Detects incoming threats and provides intel.",
+    level: 0,
+    maxLevel: 10,
+    baseCost: { energy: 200, minerals: 100 },
+    detectionRange: (level) => level * 50, // 50 units of range per level
+  },
+];
+
+// Initial render
+renderBuildings();
+
+function renderBuildings(category = "Resource Management") {
+  const filteredBuildings = buildings.filter((b) => b.category === category);
+
+  buildingsList.innerHTML = ""; // Clear previous content
+
+  filteredBuildings.forEach((building) => {
+    const buildingDiv = document.createElement("div");
+    buildingDiv.className = "building";
+    buildingDiv.innerHTML = `
+      <h3>${building.name}</h3>
+      <p>${building.description}</p>
+      <p>Level: ${building.level} / ${building.maxLevel}</p>
+      <button data-name="${building.name}">Upgrade</button>
     `;
+    buildingsList.appendChild(buildingDiv);
+  });
 }
 
-function loadBuildingsPage() {
-  const content = document.getElementById("content");
-  content.innerHTML = `
-      <h2>Buildings</h2>
-      <p>Manage your buildings here.</p>
-      <!-- Add building management logic -->
-    `;
-}
+buildingsView.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON" && e.target.dataset.name) {
+    const buildingName = e.target.dataset.name;
+    const building = buildings.find((b) => b.name === buildingName);
 
-function loadTroopsPage() {
-  const content = document.getElementById("content");
-  content.innerHTML = `
-      <h2>Troops</h2>
-      <p>Manage your troops here.</p>
-      <!-- Add troop management logic -->
-    `;
-}
-
-function loadMapPage() {
-  console.log("Loading map...");
-  clearContent(); // Clear previous content
-  if (!currentUser) {
-    console.error("No user is logged in.");
-    return;
+    if (building.level < building.maxLevel) {
+      building.level++;
+      renderBuildings(building.category); // Re-render the category
+    } else {
+      alert(`${building.name} is already at max level.`);
+    }
   }
-
-  const mapContainer = document.getElementById("map-container");
-  mapContainer.classList.remove("hidden"); // Ensure the map is visible
-  mapContainer.classList.add("visible");
-
-  const mapElement = document.getElementById("map");
-  mapElement.style.display = "grid"; // Show the map
-
-  renderMap(spaceMap, offsetX, offsetY); // Render the map
-}
+});
 
 function hideMap() {
   document.getElementById("map").style.display = "none"; // Hide map
@@ -224,10 +420,9 @@ function hideMap() {
 }
 
 function clearViews() {
-  console.log("Clearing views");
   document.querySelectorAll(".view").forEach((view) => {
     view.classList.add("hidden"); // Hide all other views
-    view.classList.remove("active");
+    view.classList.remove("visible");
   });
 
   // Ensure the map is initially hidden when clearing
@@ -310,7 +505,7 @@ function updateRoleDisplay() {
     const roleCard = document.createElement("div");
     roleCard.classList.add("role-card");
     if (index === 1) {
-      roleCard.classList.add("active"); // Highlight the active role
+      roleCard.classList.add("visible"); // Highlight the active role
     }
 
     const img = document.createElement("img");
