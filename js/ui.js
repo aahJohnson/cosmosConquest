@@ -176,10 +176,9 @@ function setActiveButton(buttonId) {
 function loadProfilePage() {
   const content = document.getElementById("content");
   content.innerHTML = `
-      <h2>Profile</h2>
-      <p>Welcome, ${currentUser.username}!</p>
-      <p>Role: ${currentUser.role}</p>
-      <p>Building Progress: ${currentUser.building_progress}</p>
+      <h2>Profile of ${currentUser.username}</h2>
+      <p>Origin: ${currentUser.role}</p>
+      <p>Moons: ${currentUser.building_progress}</p>
     `;
 }
 
@@ -297,17 +296,33 @@ function updateRoleDisplay() {
   document.getElementById("role-name").textContent = role.name;
   document.getElementById("role-description").textContent = role.description;
 
-  // Create role cards dynamically
-  carouselContent.innerHTML = roles
-    .map(
-      (role, index) => `
-    <div class="role-card ${index === currentRoleIndex ? "active" : ""}">
-    <h4>${role.name}</h4>
-      <img src="${role.image}" alt="${role.name}">
-    </div>
-  `
-    )
-    .join("");
+  // Clear existing carousel content
+  carouselContent.innerHTML = "";
+
+  // Populate the carousel with reordered roles
+  const orderedRoles = [
+    roles[(currentRoleIndex - 1 + roles.length) % roles.length], // Previous role
+    roles[currentRoleIndex], // Current role
+    roles[(currentRoleIndex + 1) % roles.length], // Next role
+  ];
+
+  orderedRoles.forEach((role, index) => {
+    const roleCard = document.createElement("div");
+    roleCard.classList.add("role-card");
+    if (index === 1) {
+      roleCard.classList.add("active"); // Highlight the active role
+    }
+
+    const img = document.createElement("img");
+    img.src = role.image;
+    img.alt = role.name;
+
+    roleCard.appendChild(img);
+    carouselContent.appendChild(roleCard);
+  });
+
+  // Move the carousel visually
+  carouselContent.style.transform = `translateX(-${150 + 10}px)`; // Adjust translation as needed
 }
 
 // Navigation logic
@@ -321,5 +336,5 @@ document.getElementById("nextRole").addEventListener("click", () => {
   updateRoleDisplay();
 });
 
-// Update the role picker on page load
+// Initialize the carousel on page load
 updateRoleDisplay();

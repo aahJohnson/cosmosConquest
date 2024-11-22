@@ -2,8 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 /* General Form Styling */
 form {
-  max-width: 500px; /* Increase the width */
-  margin: 30px auto;
+  position: absolute;
+  width: 80%;
+  max-width: 600px; /* Increase the width */
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 25px 30px; /* Add padding */
   background: "#1c1c1c";
   border: 1px solid #333;
@@ -28,6 +32,8 @@ form h2 {
 .form-group label {
   display: block;
   margin-bottom: 8px;
+  margin-left: 50%;
+  transform: translateX(-77.5%);
   font-size: 14px;
   color: #ccc;
 }
@@ -36,6 +42,9 @@ form h2 {
 .form-group select {
   width: 100%;
   padding: 12px;
+  width: 75%;
+  margin-left: 50%;
+  transform: translateX(-50%);
   font-size: 16px;
   border: 1px solid #333;
   border-radius: 4px;
@@ -50,6 +59,34 @@ form h2 {
   border-color: #a020f0;
   outline: none;
   box-shadow: 0 0 10px #a020f0;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  top: -1rem;
+  left: -10px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+}
+
+.tooltip .tooltiptext {
+  position: absolute;
+  visibility: hidden;
+  width: 20rem;
+  top: 2.5rem;
+  left: -17.5rem;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 12px;
+  z-index: 99;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 .btn {
@@ -176,14 +213,15 @@ select:focus {
   box-shadow: 0 0 10px #a020f0;
 }
 
+/* Role Carousel */
 #role-carousel {
   text-align: center;
   margin: 20px 0;
 }
 #role-carousel h3 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
-  color: #6a0dad;
+  color: #6a0dad; /* Cool sci-fi color for the header */
 }
 #role-carousel .carousel {
   display: flex;
@@ -191,65 +229,64 @@ select:focus {
   justify-content: center;
   gap: 10px;
 }
-#role-carousel .carousel .carousel-nav {
+#role-carousel .carousel-nav {
   background: transparent;
   color: #a020f0;
-  border: none;
   padding: 10px;
   cursor: pointer;
+  border: none;
   border-radius: 50%;
-  font-size: 1.2rem;
-  transition: background 0.3s;
+  font-size: 1.5rem;
+  transition: background 0.3s, transform 0.2s ease;
 }
-#role-carousel .carousel .carousel-nav:hover {
-  background: #1a1a1a;
-  box-shadow: 0 0 20px #1a1a1a;
+#role-carousel .carousel-nav:hover {
+  transform: scale(1.2);
 }
-#role-carousel .carousel .carousel-content {
+#role-carousel .carousel-nav #nextRole {
+  position: absolute;
+  right: 0px;
+  z-index: 999;
+}
+#role-carousel .carousel-content {
   display: flex;
-  overflow: hidden;
-  width: 80%;
-  justify-content: center;
+  margin-left: 28%;
+  transition: transform 0.5s ease-in-out; /* Smooth transition for movement */
+  width: 100%; /* Adjust as needed */
+  justify-content: flex-start;
 }
-#role-carousel .carousel .carousel-content .role-card {
-  min-width: 150px;
-  text-align: center;
+#role-carousel .role-card {
+  flex: 0 0 150px; /* Each card is 150px wide */
   margin: 0 5px;
-  padding: 10px;
+  text-align: center;
+  opacity: 0.8;
+  transition: opacity 0.3s, transform 0.3s;
   border-radius: 8px;
-  background: #222;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
-#role-carousel .carousel .carousel-content .role-card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #a020f0;
+#role-carousel .role-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
-#role-carousel .carousel .carousel-content .role-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-#role-carousel .carousel .carousel-content .role-card h4 {
+#role-carousel .role-card h4 {
   color: #a020f0;
   font-size: 1rem;
-  margin: 5px 0;
+  margin: 10px 0 5px 0;
 }
-#role-carousel .carousel .carousel-content .role-card p {
+#role-carousel .role-card p {
   font-size: 0.8rem;
   color: #ddd;
+  margin: 0;
 }
 #role-carousel #role-details {
   margin-top: 15px;
 }
 #role-carousel #role-details h4 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #a020f0;
 }
 #role-carousel #role-details p {
   font-size: 1rem;
-  color: #ccc;
+  color: #e0e0e0;
 }
 
 /*# sourceMappingURL=ui.css.map */

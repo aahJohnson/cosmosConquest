@@ -31,9 +31,10 @@
 
     <!-- Resource Bar -->
     <div id="resourceBar">
-      <span>Gold: <span id="goldAmount">1000</span></span>
-      <span>Metal: <span id="metalAmount">500</span></span>
-      <span>Population: <span id="populationAmount">50</span></span>
+      <span>Energy: <span id="goldAmount">0</span></span>
+      <span>Metal: <span id="metalAmount">0</span></span>
+      <span>Water: <span id="waterAmount">0</span></span>
+      <span>Size: <span id="populationAmount">0</span></span>
     </div>
 
     <!-- Main Content -->
@@ -92,7 +93,15 @@
           </div>
 
           <div id="role-carousel">
-            <h3>Choose Your Role</h3>
+            <h3>
+              Choose Your Origin
+              <div class="tooltip">
+                &#x1F6C8;
+                <span class="tooltiptext"
+                  >Your origin decides what your planet will excel at</span
+                >
+              </div>
+            </h3>
             <div class="carousel">
               <button id="prevRole" class="carousel-nav">&lt;</button>
               <div class="carousel-content">
@@ -101,8 +110,8 @@
               <button id="nextRole" class="carousel-nav">&gt;</button>
             </div>
             <div id="role-details">
-              <h4 id="role-name">Role Name</h4>
-              <p id="role-description">Role description goes here...</p>
+              <h4 id="role-name"></h4>
+              <p id="role-description"></p>
             </div>
           </div>
 

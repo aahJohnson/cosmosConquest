@@ -1,13 +1,13 @@
 const MAP_SIZE = 1000; // Map size (1000x1000)
-let BASE_SECTOR_SIZE = 12; // Default sector size (zoom level 2)
+let BASE_SECTOR_SIZE = 70; // Default sector size (zoom level 1)
 
 // Zoom levels
 const ZOOM_LEVELS = {
-  1: 50, // Zoomed-in
-  2: 12, // Default zoom
-  3: 6, // Zoomed-out
+  1: 70, // Zoomed-in (default)
+  2: 30, // Zoom middle
+  3: 14, // Zoomed-out
 };
-let currentZoom = 2; // Start at default zoom level
+let currentZoom = 1; // Start at default zoom level
 
 const SECTOR_TYPES = ["empty", "asteroids", "nebula", "planet"];
 

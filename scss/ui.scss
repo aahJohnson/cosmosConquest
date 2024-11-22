@@ -2,8 +2,12 @@
 
 /* General Form Styling */
 form {
-  max-width: 500px; /* Increase the width */
-  margin: 30px auto;
+  position: absolute;
+  width: 80%;
+  max-width: 600px; /* Increase the width */
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 25px 30px; /* Add padding */
   background: $text-dark;
   border: 1px solid #333;
@@ -28,6 +32,8 @@ form h2 {
 .form-group label {
   display: block;
   margin-bottom: 8px;
+  margin-left: 50%;
+  transform: translateX(-77.5%);
   font-size: 14px;
   color: #ccc;
 }
@@ -36,6 +42,9 @@ form h2 {
 .form-group select {
   width: 100%;
   padding: 12px;
+  width: 75%;
+  margin-left: 50%;
+  transform: translateX(-50%);
   font-size: 16px;
   border: 1px solid #333;
   border-radius: 4px;
@@ -50,6 +59,34 @@ form h2 {
   border-color: $primary-purple;
   outline: none;
   box-shadow: 0 0 10px $primary-purple;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  top: -1rem;
+  left: -10px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+}
+
+.tooltip .tooltiptext {
+  position: absolute;
+  visibility: hidden;
+  width: 20rem;
+  top: 2.5rem;
+  left: -17.5rem;
+  background-color: $background-light;
+  color: $text-light;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 12px;
+  z-index: 99;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 .btn {
@@ -176,14 +213,15 @@ select:focus {
   box-shadow: 0 0 10px $primary-purple;
 }
 
+/* Role Carousel */
 #role-carousel {
   text-align: center;
   margin: 20px 0;
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 10px;
-    color: $secondary-purple;
+    color: $secondary-purple; /* Cool sci-fi color for the header */
   }
 
   .carousel {
@@ -191,62 +229,61 @@ select:focus {
     align-items: center;
     justify-content: center;
     gap: 10px;
+  }
 
-    .carousel-nav {
-      background: transparent;
-      color: $primary-purple;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      transition: background 0.3s;
+  .carousel-nav {
+    background: transparent;
+    color: $primary-purple;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background 0.3s, transform 0.2s ease;
 
-      &:hover {
-        background: $background-light;
-        box-shadow: 0 0 20px $background-light;
-      }
+    &:hover {
+      transform: scale(1.2);
     }
 
-    .carousel-content {
-      display: flex;
-      overflow: hidden;
-      width: 80%;
-      justify-content: center;
+    #nextRole {
+      position: absolute;
+      right: 0px;
+      z-index: 999;
+    }
+  }
 
-      .role-card {
-        min-width: 150px;
-        text-align: center;
-        margin: 0 5px;
-        padding: 10px;
-        border-radius: 8px;
-        background: #222;
-        transition: transform 0.3s, box-shadow 0.3s;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  .carousel-content {
+    display: flex;
+    margin-left: 28%;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for movement */
+    width: 100%; /* Adjust as needed */
+    justify-content: flex-start;
+  }
 
-        &:hover {
-          transform: scale(1.1);
-          box-shadow: 0 0 15px $primary-purple;
-        }
+  .role-card {
+    flex: 0 0 150px; /* Each card is 150px wide */
+    margin: 0 5px;
+    text-align: center;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+    border-radius: 8px;
 
-        img {
-          width: 100px;
-          height: 100px;
-          object-fit: cover;
-          border-radius: 50%;
-        }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-        h4 {
-          color: $primary-purple;
-          font-size: 1rem;
-          margin: 5px 0;
-        }
+    h4 {
+      color: $primary-purple;
+      font-size: 1rem;
+      margin: 10px 0 5px 0;
+    }
 
-        p {
-          font-size: 0.8rem;
-          color: #ddd;
-        }
-      }
+    p {
+      font-size: 0.8rem;
+      color: #ddd;
+      margin: 0;
     }
   }
 
@@ -254,13 +291,13 @@ select:focus {
     margin-top: 15px;
 
     h4 {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: $primary-purple;
     }
 
     p {
       font-size: 1rem;
-      color: #ccc;
+      color: $text-light;
     }
   }
 }
