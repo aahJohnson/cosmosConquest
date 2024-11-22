@@ -1,3 +1,5 @@
+/* Import Orbitron Font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 /* Prevent Scrolling */
 html,
 body {
@@ -19,6 +21,10 @@ body {
   position: relative; /* Relative to its parent container */
   background-color: black; /* Map background */
   z-index: 1; /* Below overlay elements like zoom controls */
+}
+
+#map:active {
+  cursor: move;
 }
 
 /* Map Container */
@@ -99,7 +105,7 @@ body {
 
 #zoom-controls button:hover {
   background: #a020f0;
-  color: #1c1c1c;
+  color: "#1c1c1c";
   box-shadow: 0 0 15px #a020f0;
   transform: scale(1.05);
 }

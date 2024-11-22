@@ -1,9 +1,11 @@
+/* Import Orbitron Font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 /* General Form Styling */
 form {
   max-width: 500px; /* Increase the width */
   margin: 30px auto;
   padding: 25px 30px; /* Add padding */
-  background: #1c1c1c;
+  background: $text-dark;
   border: 1px solid #333;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);

@@ -1,3 +1,11 @@
+/* Import Orbitron Font */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+// Fonts
+$font-family: "Orbitron", sans-serif;
+$font-size-base: 16px;
+$font-size-large: 18px;
+
 // Colors
 $background-dark: #121212;
 $background-light: #1a1a1a;
@@ -5,21 +13,17 @@ $primary-purple: #a020f0;
 $secondary-purple: #6a0dad;
 $accent-purple: #b784f2;
 $highlight-cyan: #00ffff;
+$text-dark: "#1c1c1c";
 $text-light: #e0e0e0;
 $text-muted: #b0b0b0;
 $border-color: #3d3d3d;
 $hover-blue: #4b0082;
 
-// Spacing
-$padding-small: 8px;
-$padding-medium: 16px;
-$padding-large: 32px;
-
 // Shadows
 $glow: 0 0 10px $accent-purple;
 $hover-glow: 0 0 20px $accent-purple;
 
-// Fonts
-$font-family: "Orbitron", sans-serif;
-$font-size-base: 16px;
-$font-size-large: 18px;
+// Spacing
+$padding-small: 8px;
+$padding-medium: 16px;
+$padding-large: 32px;

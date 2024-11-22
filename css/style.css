@@ -17,7 +17,7 @@ body {
   left: 0;
   width: 220px;
   height: 100%;
-  background: #1f1f1f;
+  background: #1a1a1a;
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -41,7 +41,7 @@ body {
 
 #sidebar button:hover {
   background: #a020f0;
-  color: #1c1c1c;
+  color: "#1c1c1c";
   box-shadow: 0 0 10px #a020f0;
   transform: scale(1.05);
 }
@@ -60,7 +60,7 @@ body {
   left: 220px;
   right: 0;
   height: 60px;
-  background: #1f1f1f;
+  background: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: space-around;

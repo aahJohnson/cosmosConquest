@@ -26,6 +26,10 @@ body {
   z-index: 1; /* Below overlay elements like zoom controls */
 }
 
+#map:active {
+  cursor: move;
+}
+
 /* Map Container */
 #map-container {
   position: absolute;
@@ -72,11 +76,11 @@ body {
   bottom: 80px;
   right: 20px;
   background: #1f1f1f;
-  color: #e0e0e0;
+  color: $text-light;
   padding: 8px 15px;
   border-radius: 5px;
   font-size: 14px;
-  text-shadow: 0 0 10px #a020f0;
+  text-shadow: 0 0 10px $primary-purple;
   z-index: 1000; /* Ensure it is always above other elements */
 }
 
@@ -90,7 +94,7 @@ body {
 
 #zoom-controls button {
   background: #333;
-  color: #e0e0e0;
+  color: $text-light;
   border: none;
   margin: 10px 0;
   padding: 12px;
@@ -103,8 +107,8 @@ body {
 }
 
 #zoom-controls button:hover {
-  background: #a020f0;
-  color: #1c1c1c;
-  box-shadow: 0 0 15px #a020f0;
+  background: $primary-purple;
+  color: $text-dark;
+  box-shadow: 0 0 15px $primary-purple;
   transform: scale(1.05);
 }

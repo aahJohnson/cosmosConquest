@@ -1,12 +1,10 @@
-/* Import Orbitron Font */
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 @import "variables";
 
 /* General Body Styling */
 body {
   font-family: "Orbitron", sans-serif; /* Futuristic font */
-  background: #121212; /* Dark background for contrast */
-  color: #e0e0e0; /* Light text for readability */
+  background: $background-dark; /* Dark background for contrast */
+  color: $text-light; /* Light text for readability */
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -19,7 +17,7 @@ body {
   left: 0;
   width: 220px;
   height: 100%;
-  background: #1f1f1f;
+  background: $background-light;
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -29,7 +27,7 @@ body {
 
 #sidebar button {
   background: #333;
-  color: #e0e0e0;
+  color: $text-light;
   border: none;
   margin: 10px 0;
   padding: 12px;
@@ -42,17 +40,17 @@ body {
 }
 
 #sidebar button:hover {
-  background: #a020f0;
-  color: #1c1c1c;
-  box-shadow: 0 0 10px #a020f0;
+  background: $primary-purple;
+  color: $text-dark;
+  box-shadow: 0 0 10px $primary-purple;
   transform: scale(1.05);
 }
 
 #sidebar button.active {
-  background: #a020f0; /* Highlighted background */
+  background: $primary-purple; /* Highlighted background */
   color: #000; /* Text color when active */
   font-weight: bold; /* Make it stand out */
-  box-shadow: 0 0 10px #a020f0; /* Add glow effect */
+  box-shadow: 0 0 10px $primary-purple; /* Add glow effect */
 }
 
 /* Resource Bar Styling */
@@ -62,7 +60,7 @@ body {
   left: 220px;
   right: 0;
   height: 60px;
-  background: #1f1f1f;
+  background: $background-light;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -72,8 +70,8 @@ body {
 
 #resourceBar span {
   font-size: 18px;
-  color: #a020f0;
-  text-shadow: 0 0 10px #a020f0;
+  color: $primary-purple;
+  text-shadow: 0 0 10px $primary-purple;
 }
 
 /* Main Content Area */
