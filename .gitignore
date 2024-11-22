@@ -1,1 +1,47 @@
-/backend/.env
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+logs/*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Build outputs
+/dist/
+/build/
+/*.scss.map
+/*.css.map
+
+# IDE-specific files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.bak
+*.orig
+
+# SCSS Cache
+.sass-cache/
+
+# Debugger configurations
+*.launch.json
+
+# Optional if you're using GitHub Codespaces
+.github/codespaces/
