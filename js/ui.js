@@ -254,86 +254,74 @@ document.querySelectorAll(".category-btn").forEach((btn) => {
 const buildings = [
   // Resource Management
   {
-    name: "Solar Array",
-    category: "Resource Management",
-    description: "Produces Energy to power your colony.",
-    level: 0,
-    maxLevel: 20,
-    baseCost: { energy: 100, minerals: 50 },
-    productionRate: (level) => level * 10, // 10 Energy per level
-  },
-
-  {
     name: "Refinery",
     category: "Resource Management",
-    description: "Extracts and processes Minerals.",
+    description: "Extracts and processes Minerals for construction and troops.",
     level: 0,
     maxLevel: 20,
     baseCost: { minerals: 200, energy: 50 },
     productionRate: (level) => level * 5, // 5 Minerals per level
   },
   {
-    name: "Hydro Plant",
+    name: "Crystal Mine",
     category: "Resource Management",
-    description: "Produces Water for sustaining your Settlers.",
+    description: "Harvests Crystals from beneath the surface.",
     level: 0,
     maxLevel: 15,
     baseCost: { energy: 50, minerals: 100 },
-    productionRate: (level) => level * 3, // 3 Water per level
+    productionRate: (level) => level * 3, // 3 Crystals per level
   },
   {
-    name: "Energy Battery",
+    name: "Hydro Plant",
     category: "Resource Management",
-    description: "Stores Energy for future use.",
+    description: "Generates Hydrogen for advanced constructions.",
     level: 0,
-    maxLevel: 20,
+    maxLevel: 15,
     baseCost: { energy: 50, minerals: 100 },
-    storageCapacity: (level) => level * 100, // Stores 100 Energy per level
+    productionRate: (level) => level * 4, // 4 Hydrogen per level
   },
   {
     name: "Mineral Depot",
     category: "Resource Management",
-    description: "Stores Minerals for building and upgrades.",
+    description: "Stores excess Minerals for future use.",
     level: 0,
     maxLevel: 20,
     baseCost: { minerals: 100, energy: 50 },
     storageCapacity: (level) => level * 200, // Stores 200 Minerals per level
   },
   {
-    name: "Aqua Tank",
+    name: "Crystal Storage",
     category: "Resource Management",
-    description: "Stores Water for your population.",
+    description: "Secures Crystals for technological advancements.",
     level: 0,
     maxLevel: 15,
-    baseCost: { minerals: 50, energy: 50 },
-    storageCapacity: (level) => level * 150, // Stores 150 Water per level
-  },
-
-  // Population Management
-  {
-    name: "Habitat Dome",
-    category: "Population Management",
-    description: "Increases maximum Settler capacity.",
-    level: 0,
-    maxLevel: 10,
-    baseCost: { water: 200, minerals: 100 },
-    populationCap: (level) => level * 50, // Adds 50 Settlers capacity per level
+    baseCost: { minerals: 150, energy: 50 },
+    storageCapacity: (level) => level * 150, // Stores 150 Crystals per level
   },
   {
-    name: "Research Lab",
-    category: "Population Management",
-    description: "Unlocks new technologies and boosts efficiency.",
+    name: "Aqua Tank",
+    category: "Resource Management",
+    description: "Holds Hydrogen reserves for production and troops.",
     level: 0,
-    maxLevel: 10,
-    baseCost: { energy: 300, minerals: 200 },
-    researchBonus: (level) => level * 5, // Placeholder for research effect
+    maxLevel: 15,
+    baseCost: { minerals: 100, energy: 50 },
+    storageCapacity: (level) => level * 100, // Stores 100 Hydrogen per level
+  },
+  {
+    name: "Solar Array",
+    category: "Resource Management",
+    description: "Generates Energy to maintain buildings and troops.",
+    level: 0,
+    maxLevel: 20,
+    baseCost: { minerals: 50, energy: 100 },
+    productionRate: (level) => level * 20, // 20 Energy per level
   },
 
   // Troop Handling
   {
     name: "Shipyard",
     category: "Troop Handling",
-    description: "Produces offensive units for attacking enemies.",
+    description: "Constructs offensive ships for planetary conquest.",
     level: 0,
     maxLevel: 20,
     baseCost: { minerals: 500, energy: 200 },
@@ -342,7 +330,7 @@ const buildings = [
   {
     name: "Satellite Factory",
     category: "Troop Handling",
-    description: "Produces defensive satellites that orbit your planet.",
+    description: "Manufactures defensive satellites to guard your planet.",
     level: 0,
     maxLevel: 20,
     baseCost: { energy: 300, minerals: 300 },
@@ -353,7 +341,7 @@ const buildings = [
   {
     name: "Shield Generator",
     category: "Defense",
-    description: "Reduces damage from incoming attacks.",
+    description: "Projects a shield to protect your resources from attacks.",
     level: 0,
     maxLevel: 15,
     baseCost: { minerals: 700, energy: 300 },
@@ -362,7 +350,7 @@ const buildings = [
   {
     name: "Turret Network",
     category: "Defense",
-    description: "Stationary defenses to protect your planet.",
+    description: "Deploys stationary turrets for planetary defense.",
     level: 0,
     maxLevel: 15,
     baseCost: { minerals: 500, energy: 200 },
@@ -371,11 +359,31 @@ const buildings = [
   {
     name: "Sensor Tower",
     category: "Defense",
-    description: "Detects incoming threats and provides intel.",
+    description: "Detects incoming fleets and provides tactical data.",
     level: 0,
     maxLevel: 10,
     baseCost: { energy: 200, minerals: 100 },
     detectionRange: (level) => level * 50, // 50 units of range per level
+  },
+
+  // Research
+  {
+    name: "Plasma Extractor",
+    category: "Research",
+    description: "Generates Plasma for research and advanced upgrades.",
+    level: 0,
+    maxLevel: 10,
+    baseCost: { hydrogen: 200, minerals: 100 },
+    plasmaOutput: (level) => level * 2, // Generates 2 Plasma per level
+  },
+  {
+    name: "Research Lab",
+    category: "Research",
+    description: "Develops new technologies to enhance your operations.",
+    level: 0,
+    maxLevel: 10,
+    baseCost: { energy: 300, minerals: 200 },
+    researchBonus: (level) => level * 5, // Placeholder for research effect
   },
 ];
 

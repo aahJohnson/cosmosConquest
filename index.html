@@ -42,87 +42,94 @@
     <div id="content">
       <!-- Login/Register Forms -->
       <div id="authContainer">
-        <form id="loginForm" style="display: none">
-          <h2>Login</h2>
-          <div class="form-group">
-            <label for="loginUsername">Username:</label>
-            <input
-              type="text"
-              id="loginUsername"
-              placeholder="Enter username"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="loginPassword">Password:</label>
-            <input
-              type="password"
-              id="loginPassword"
-              placeholder="Enter password"
-              required
-            />
-          </div>
-          <button type="submit" class="btn" id="loginButton">Login</button>
-          <p class="toggle-form">
-            Don't have an account?
-            <button id="showRegisterForm">Register</button>
-          </p>
-          <p id="loginResult" class="result-message"></p>
-        </form>
-
-        <form id="registerForm">
-          <h2>Create a New User</h2>
-          <div class="form-group">
-            <label for="registerUsername">Username:</label>
-            <input
-              type="text"
-              id="registerUsername"
-              placeholder="Enter username"
-            />
-          </div>
-          <div class="form-group">
-            <label for="registerEmail">Email:</label>
-            <input type="email" id="registerEmail" placeholder="Enter email" />
-          </div>
-          <div class="form-group">
-            <label for="registerPassword">Password:</label>
-            <input
-              type="password"
-              id="registerPassword"
-              placeholder="Enter password"
-            />
-          </div>
-
-          <div id="role-carousel">
-            <h3>
-              Choose Your Origin
-              <div class="tooltip">
-                &#x1F6C8;
-                <span class="tooltiptext"
-                  >Your origin decides what your planet will excel at</span
-                >
-              </div>
-            </h3>
-            <div class="carousel">
-              <button id="prevRole" class="carousel-nav">&lt;</button>
-              <div class="carousel-content">
-                <!-- Roles dynamically populated -->
-              </div>
-              <button id="nextRole" class="carousel-nav">&gt;</button>
+        <div id="authBackground">
+          <form id="loginForm" style="display: none">
+            <h2>Login</h2>
+            <div class="form-group">
+              <label for="loginUsername">Username:</label>
+              <input
+                type="text"
+                id="loginUsername"
+                placeholder="Enter username"
+                required
+              />
             </div>
-            <div id="role-details">
-              <h4 id="role-name"></h4>
-              <p id="role-description"></p>
+            <div class="form-group">
+              <label for="loginPassword">Password:</label>
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter password"
+                required
+              />
             </div>
-          </div>
+            <button type="submit" class="btn" id="loginButton">Login</button>
+            <p class="toggle-form">
+              Don't have an account?
+              <button id="showRegisterForm">Register</button>
+            </p>
+            <p id="loginResult" class="result-message"></p>
+          </form>
 
-          <button type="button" class="btn" id="registerButton">
-            Create User
-          </button>
-          <p class="toggle-form">
-            Already have an account? <button id="showLoginForm">Log In</button>
-          </p>
-        </form>
+          <form id="registerForm">
+            <h2>Create a New User</h2>
+            <div class="form-group">
+              <label for="registerUsername">Username:</label>
+              <input
+                type="text"
+                id="registerUsername"
+                placeholder="Enter username"
+              />
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email:</label>
+              <input
+                type="email"
+                id="registerEmail"
+                placeholder="Enter email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">Password:</label>
+              <input
+                type="password"
+                id="registerPassword"
+                placeholder="Enter password"
+              />
+            </div>
+
+            <div id="role-carousel">
+              <h3>
+                Choose Your Origin
+                <div class="tooltip">
+                  &#x1F6C8;
+                  <span class="tooltiptext"
+                    >Your origin decides what your planet will excel at</span
+                  >
+                </div>
+              </h3>
+              <div class="carousel">
+                <button id="prevRole" class="carousel-nav">&lt;</button>
+                <div class="carousel-content">
+                  <!-- Roles dynamically populated -->
+                </div>
+                <button id="nextRole" class="carousel-nav">&gt;</button>
+              </div>
+              <div id="role-details">
+                <h4 id="role-name"></h4>
+                <p id="role-description"></p>
+              </div>
+            </div>
+
+            <button type="button" class="btn" id="registerButton">
+              Create User
+            </button>
+            <p class="toggle-form">
+              Already have an account?
+              <button id="showLoginForm">Log In</button>
+            </p>
+          </form>
+        </div>
       </div>
 
       <!-- Profile View -->
@@ -140,13 +147,13 @@
           <button class="category-btn" data-category="Resource Management">
             Resource Management
           </button>
-          <button class="category-btn" data-category="Population Management">
-            Population Management
-          </button>
           <button class="category-btn" data-category="Troop Handling">
             Troop Handling
           </button>
           <button class="category-btn" data-category="Defense">Defense</button>
+          <button class="category-btn" data-category="Research">
+            Research
+          </button>
         </div>
         <div id="buildings-list">
           <!-- Buildings dynamically inserted here -->

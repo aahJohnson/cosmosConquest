@@ -1,6 +1,16 @@
 @import "variables";
 
 /* General Form Styling */
+#authBackground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(15, 15, 15, 0.5);
+  z-index: 500;
+}
+
 form {
   position: absolute;
   width: 80%;
