@@ -1,4 +1,7 @@
-import factions from "./factions.js";
+import { buildings } from "../data/buildings.js";
+import { units } from "../data/units.js";
+import localization from "../data/localization.json";
+import { factions } from "../data/factions.js";
 
 // Initialize Game
 function startGame() {

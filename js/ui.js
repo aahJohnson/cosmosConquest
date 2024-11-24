@@ -1,4 +1,7 @@
-console.log("DOM fully loaded and parsed");
+import { buildings } from "../data/buildings.js";
+import { units } from "../data/units.js";
+import localization from "../data/localization.json";
+import { factions } from "../data/factions.js";
 
 // Global variable to store logged-in user data
 let currentUser = null;
@@ -251,142 +254,6 @@ document.querySelectorAll(".category-btn").forEach((btn) => {
   });
 });
 
-const buildings = [
-  // Resource Management
-  {
-    name: "Refinery",
-    category: "Resource Management",
-    description: "Extracts and processes Minerals for construction and troops.",
-    level: 0,
-    maxLevel: 20,
-    baseCost: { minerals: 200, energy: 50 },
-    productionRate: (level) => level * 5, // 5 Minerals per level
-  },
-  {
-    name: "Crystal Mine",
-    category: "Resource Management",
-    description: "Harvests Crystals from beneath the surface.",
-    level: 0,
-    maxLevel: 15,
-    baseCost: { energy: 50, minerals: 100 },
-    productionRate: (level) => level * 3, // 3 Crystals per level
-  },
-  {
-    name: "Hydro Plant",
-    category: "Resource Management",
-    description: "Generates Hydrogen for advanced constructions.",
-    level: 0,
-    maxLevel: 15,
-    baseCost: { energy: 50, minerals: 100 },
-    productionRate: (level) => level * 4, // 4 Hydrogen per level
-  },
-  {
-    name: "Mineral Depot",
-    category: "Resource Management",
-    description: "Stores excess Minerals for future use.",
-    level: 0,
-    maxLevel: 20,
-    baseCost: { minerals: 100, energy: 50 },
-    storageCapacity: (level) => level * 200, // Stores 200 Minerals per level
-  },
-  {
-    name: "Crystal Storage",
-    category: "Resource Management",
-    description: "Secures Crystals for technological advancements.",
-    level: 0,
-    maxLevel: 15,
-    baseCost: { minerals: 150, energy: 50 },
-    storageCapacity: (level) => level * 150, // Stores 150 Crystals per level
-  },
-  {
-    name: "Aqua Tank",
-    category: "Resource Management",
-    description: "Holds Hydrogen reserves for production and troops.",
-    level: 0,
-    maxLevel: 15,
-    baseCost: { minerals: 100, energy: 50 },
-    storageCapacity: (level) => level * 100, // Stores 100 Hydrogen per level
-  },
-  {
-    name: "Solar Array",
-    category: "Resource Management",
-    description: "Generates Energy to maintain buildings and troops.",
-    level: 0,
-    maxLevel: 20,
-    baseCost: { minerals: 50, energy: 100 },
-    productionRate: (level) => level * 20, // 20 Energy per level
-  },
-
-  // Troop Handling
-  {
-    name: "Shipyard",
-    category: "Troop Handling",
-    description: "Constructs offensive ships for planetary conquest.",
-    level: 0,
-    maxLevel: 20,
-    baseCost: { minerals: 500, energy: 200 },
-    troopOutput: (level) => level * 2, // Produces 2 ships per level
-  },
-  {
-    name: "Satellite Factory",
-    category: "Troop Handling",
-    description: "Manufactures defensive satellites to guard your planet.",
-    level: 0,
-    maxLevel: 20,
-    baseCost: { energy: 300, minerals: 300 },
-    defenseOutput: (level) => level * 1, // Produces 1 satellite per level
-  },
-
-  // Defense
-  {
-    name: "Shield Generator",
-    category: "Defense",
-    description: "Projects a shield to protect your resources from attacks.",
-    level: 0,
-    maxLevel: 15,
-    baseCost: { minerals: 700, energy: 300 },
-    defenseBoost: (level) => level * 2, // 2% damage reduction per level
-  },
-  {
-    name: "Turret Network",
-    category: "Defense",
-    description: "Deploys stationary turrets for planetary defense.",
-    level: 0,
-    maxLevel: 15,
-    baseCost: { minerals: 500, energy: 200 },
-    defenseBoost: (level) => level * 3, // 3% damage boost per level
-  },
-  {
-    name: "Sensor Tower",
-    category: "Defense",
-    description: "Detects incoming fleets and provides tactical data.",
-    level: 0,
-    maxLevel: 10,
-    baseCost: { energy: 200, minerals: 100 },
-    detectionRange: (level) => level * 50, // 50 units of range per level
-  },
-
-  // Research
-  {
-    name: "Plasma Extractor",
-    category: "Research",
-    description: "Generates Plasma for research and advanced upgrades.",
-    level: 0,
-    maxLevel: 10,
-    baseCost: { hydrogen: 200, minerals: 100 },
-    plasmaOutput: (level) => level * 2, // Generates 2 Plasma per level
-  },
-  {
-    name: "Research Lab",
-    category: "Research",
-    description: "Develops new technologies to enhance your operations.",
-    level: 0,
-    maxLevel: 10,
-    baseCost: { energy: 300, minerals: 200 },
-    researchBonus: (level) => level * 5, // Placeholder for research effect
-  },
-];
-
 // Initial render
 renderBuildings();
 
@@ -444,35 +311,6 @@ function clearContent() {
   mapContainer.classList.remove("visible");
   mapContainer.classList.add("hidden");
 }
-
-const roles = [
-  {
-    name: "Gas",
-    description: "Strategists excelling in guerrilla tactics and hidden bases.",
-    image: "media/planets/gasPlanet.webp",
-  },
-  {
-    name: "Ice",
-    description: "Strong on diplomacy and trade.",
-    image: "media/planets/icePlanet.webp",
-  },
-  {
-    name: "Volcanic",
-    description:
-      "Balanced approach to defense, resource gathering, and technology.",
-    image: "media/planets/volcanicPlanet.webp",
-  },
-  {
-    name: "Rocky",
-    description: "High focus on energy production and troop strength.",
-    image: "media/planets/rockyPlanet.webp",
-  },
-  {
-    name: "Ocean",
-    description: "Immense strength in defense and resource extraction.",
-    image: "media/planets/oceanPlanet.webp",
-  },
-];
 
 let currentRoleIndex = 0;
 
