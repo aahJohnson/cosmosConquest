@@ -1,7 +1,6 @@
 import { buildings } from "../data/buildings.js";
 import { units } from "../data/units.js";
 import localization from "../data/localization.json";
-import { factions } from "../data/factions.js";
 
 const MAP_SIZE = 1000; // Map size (1000x1000)
 let BASE_SECTOR_SIZE = 70; // Default sector size (zoom level 1)

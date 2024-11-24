@@ -1,7 +1,6 @@
 import { buildings } from "../data/buildings.js";
 import { units } from "../data/units.js";
 import localization from "../data/localization.json";
-import { factions } from "../data/factions.js";
 
 // Global variable to store logged-in user data
 let currentUser = null;

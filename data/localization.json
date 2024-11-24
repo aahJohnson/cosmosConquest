@@ -63,6 +63,28 @@
       "troopHandling": "Troop Handling",
       "defense": "Defense",
       "research": "Research"
+    },
+    "factions": {
+      "gas": {
+        "name": "Gas",
+        "description": "Strategists excelling in guerrilla tactics and hidden bases."
+      },
+      "ice": {
+        "name": "Ice",
+        "description": "Strong on diplomacy and trade."
+      },
+      "volcanic": {
+        "name": "Volcanic",
+        "description": "Balanced approach to defense, resource gathering, and technology."
+      },
+      "rocky": {
+        "name": "Rocky",
+        "description": "High focus on energy production and troop strength."
+      },
+      "ocean": {
+        "name": "Ocean",
+        "description": "Immense strength in defense and resource extraction."
+      }
     }
   }
 }
