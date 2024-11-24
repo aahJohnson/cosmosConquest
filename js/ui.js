@@ -439,45 +439,30 @@ function clearContent() {
 
 const roles = [
   {
-    name: "Mercury",
+    name: "Gas",
     description: "Strategists excelling in guerrilla tactics and hidden bases.",
-    image: "media/planets/mercury.webp",
+    image: "media/planets/gasPlanet.webp",
   },
   {
-    name: "Venus",
+    name: "Ice",
     description: "Strong on diplomacy and trade.",
-    image: "media/planets/venus.webp",
+    image: "media/planets/icePlanet.webp",
   },
   {
-    name: "Earth",
+    name: "Volcanic",
     description:
       "Balanced approach to defense, resource gathering, and technology.",
-    image: "media/planets/earth.webp",
+    image: "media/planets/volcanicPlanet.webp",
   },
   {
-    name: "Mars",
+    name: "Rocky",
     description: "High focus on energy production and troop strength.",
-    image: "media/planets/mars.webp",
+    image: "media/planets/rockyPlanet.webp",
   },
   {
-    name: "Jupiter",
+    name: "Ocean",
     description: "Immense strength in defense and resource extraction.",
-    image: "media/planets/jupiter.webp",
-  },
-  {
-    name: "Saturn",
-    description: "Masters of fleet upgrades and space navigation.",
-    image: "media/planets/saturn.webp",
-  },
-  {
-    name: "Uranus",
-    description: "Focused on stealth and energy efficiency.",
-    image: "media/planets/uranus.webp",
-  },
-  {
-    name: "Neptune",
-    description: "Experts in water resources and advanced research.",
-    image: "media/planets/neptune.webp",
+    image: "media/planets/oceanPlanet.webp",
   },
 ];
 
