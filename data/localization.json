@@ -1,5 +1,40 @@
 {
   "en": {
+    "app.title": "OuterSide.io",
+    "sidebar.profile": "Profile",
+    "sidebar.buildings": "Buildings",
+    "sidebar.troops": "Troops",
+    "sidebar.map": "Map",
+    "resources.energy": "Energy",
+    "resources.minerals": "Minerals",
+    "resources.crystals": "Crystals",
+    "resources.hydrogen": "Hydrogen",
+    "resources.population": "Settlers",
+    "auth.login.title": "Log In",
+    "auth.login.username": "Username",
+    "auth.login.username.placeholder": "Enter your username",
+    "auth.login.password": "Password",
+    "auth.login.password.placeholder": "Enter your password",
+    "auth.login.button": "Log In",
+    "auth.login.switch": "Create New Account",
+    "auth.register.title": "Create New Account",
+    "auth.register.username": "Username",
+    "auth.register.username.placeholder": "Enter your username",
+    "auth.register.email": "Email",
+    "auth.register.email.placeholder": "Enter your email",
+    "auth.register.password": "Password",
+    "auth.register.password.placeholder": "Enter your password",
+    "auth.register.role": "Choose Your Planet",
+    "auth.register.tooltip": "Your origin decides what your planet will excel at",
+    "auth.register.button": "Register",
+    "auth.register.switch": "Already have an account? Log In",
+    "profile.title": "Your Profile",
+    "buildings.title": "Buildings Overview",
+    "troops.title": "Troop Management",
+    "map.coords": "Coordinates",
+    "map.zoom.in": "Zoom In",
+    "map.zoom.out": "Zoom Out",
+
     "buildings": {
       "refinery": {
         "name": "Refinery",
@@ -67,23 +102,28 @@
     "factions": {
       "gas": {
         "name": "Gas",
-        "description": "Strategists excelling in guerrilla tactics and hidden bases."
+        "description": "Strategists excelling in guerrilla tactics and hidden bases.",
+        "image": "../media/planets/gasPlanet.webp"
       },
       "ice": {
         "name": "Ice",
-        "description": "Strong on diplomacy and trade."
+        "description": "Strong on diplomacy and trade.",
+        "image": "../media/planets/icePlanet.webp"
       },
       "volcanic": {
         "name": "Volcanic",
-        "description": "Balanced approach to defense, resource gathering, and technology."
+        "description": "Balanced approach to defense, resource gathering, and technology.",
+        "image": "../media/planets/volcanicPlanet.webp"
       },
       "rocky": {
         "name": "Rocky",
-        "description": "High focus on energy production and troop strength."
+        "description": "High focus on energy production and troop strength.",
+        "image": "../media/planets/rockyPlanet.webp"
       },
       "ocean": {
         "name": "Ocean",
-        "description": "Immense strength in defense and resource extraction."
+        "description": "Immense strength in defense and resource extraction.",
+        "image": "../media/planets/oceanPlanet.webp"
       }
     }
   }

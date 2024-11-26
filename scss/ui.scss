@@ -1,4 +1,14 @@
-@import "variables";
+@import "variables.scss";
+
+/* Main Content Area */
+#content {
+  margin-left: 250px;
+  margin-top: 60px;
+  padding: 20px;
+  overflow: auto;
+  height: calc(100vh - 60px);
+  box-sizing: border-box;
+}
 
 /* General Form Styling */
 #authBackground {
@@ -11,6 +21,7 @@
   z-index: 500;
 }
 
+/* Login & Register forms */
 form {
   position: absolute;
   width: 80%;
@@ -71,34 +82,6 @@ form h2 {
   box-shadow: 0 0 10px $primary-purple;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  top: -1rem;
-  left: -10px;
-  font-size: 1.5rem;
-  border-radius: 50%;
-}
-
-.tooltip .tooltiptext {
-  position: absolute;
-  visibility: hidden;
-  width: 20rem;
-  top: 2.5rem;
-  left: -17.5rem;
-  background-color: $background-light;
-  color: $text-light;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  font-size: 12px;
-  z-index: 99;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
 .btn {
   width: 100%;
   padding: 12px;
@@ -126,12 +109,12 @@ form h2 {
   color: #ccc;
 }
 
-.toggle-form button {
+.toggle-form span {
   background: none;
   border: none;
   color: $secondary-purple;
   cursor: pointer;
-  text-decoration: underline;
+  border-bottom: 1px solid $secondary-purple;
   font-size: 14px;
 }
 
@@ -139,14 +122,109 @@ form h2 {
   color: $primary-purple;
 }
 
-/* Main Content Area */
-#content {
-  margin-left: 250px;
-  margin-top: 60px;
-  padding: 20px;
-  overflow: auto;
-  height: calc(100vh - 60px);
-  box-sizing: border-box;
+/* Login/Register Form Glows */
+form h2,
+.toggle-form button:hover {
+  text-shadow: 0 0 15px $primary-purple;
+}
+
+/* Consistent Form Input Glow */
+input:focus,
+select:focus {
+  border: 1px solid $primary-purple;
+  box-shadow: 0 0 10px $primary-purple;
+}
+
+/* Role Carousel */
+#roleSelect {
+  text-align: center;
+  label {
+    font-size: 1.2rem;
+    color: $primary-purple;
+  }
+}
+
+#role-description {
+  padding-top: 20px;
+}
+
+#role-carousel {
+  text-align: center;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: $secondary-purple; /* Cool sci-fi color for the header */
+  }
+
+  .carousel-nav {
+    background: transparent;
+    color: $primary-purple;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background 0.3s, transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .carousel-content {
+    display: flex;
+    margin-left: 28%;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for movement */
+    width: 100%; /* Adjust as needed */
+    justify-content: flex-start;
+  }
+
+  .role-card {
+    flex: 0 0 150px; /* Each card is 150px wide */
+    margin: 0 5px;
+    text-align: center;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+    border-radius: 8px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    h4 {
+      color: $primary-purple;
+      font-size: 1rem;
+      margin: 10px 0 5px 0;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: #ddd;
+      margin: 0;
+    }
+  }
+
+  #role-details {
+    margin-top: 15px;
+
+    h4 {
+      font-size: 1.4rem;
+      color: $primary-purple;
+    }
+
+    p {
+      font-size: 1rem;
+      color: $text-light;
+    }
+  }
 }
 
 /* Profile View */
@@ -185,10 +263,10 @@ form h2 {
 
   .category-btn {
     padding: 10px 15px;
-    background: #333;
+    background: red;
     color: $primary-purple;
     font-weight: bold;
-    border: none;
+    border-bottom: 5px solid white;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
@@ -263,107 +341,5 @@ form h2 {
 #troops-view {
   h2 {
     text-align: center;
-  }
-}
-
-/* Login/Register Form Glows */
-form h2,
-.toggle-form button:hover {
-  text-shadow: 0 0 15px $primary-purple;
-}
-
-/* Consistent Form Input Glow */
-input:focus,
-select:focus {
-  border: 1px solid $primary-purple;
-  box-shadow: 0 0 10px $primary-purple;
-}
-
-/* Role Carousel */
-#role-carousel {
-  text-align: center;
-  margin: 20px 0;
-
-  h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: $secondary-purple; /* Cool sci-fi color for the header */
-  }
-
-  .carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .carousel-nav {
-    background: transparent;
-    color: $primary-purple;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    transition: background 0.3s, transform 0.2s ease;
-
-    &:hover {
-      transform: scale(1.2);
-    }
-
-    #nextRole {
-      position: absolute;
-      right: 0px;
-      z-index: 999;
-    }
-  }
-
-  .carousel-content {
-    display: flex;
-    margin-left: 28%;
-    transition: transform 0.5s ease-in-out; /* Smooth transition for movement */
-    width: 100%; /* Adjust as needed */
-    justify-content: flex-start;
-  }
-
-  .role-card {
-    flex: 0 0 150px; /* Each card is 150px wide */
-    margin: 0 5px;
-    text-align: center;
-    opacity: 0.8;
-    transition: opacity 0.3s, transform 0.3s;
-    border-radius: 8px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    h4 {
-      color: $primary-purple;
-      font-size: 1rem;
-      margin: 10px 0 5px 0;
-    }
-
-    p {
-      font-size: 0.8rem;
-      color: #ddd;
-      margin: 0;
-    }
-  }
-
-  #role-details {
-    margin-top: 15px;
-
-    h4 {
-      font-size: 1.4rem;
-      color: $primary-purple;
-    }
-
-    p {
-      font-size: 1rem;
-      color: $text-light;
-    }
   }
 }

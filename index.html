@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OuterSide.io</title>
+    <title data-localize="app.title"></title>
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/map.css" />
@@ -17,25 +17,24 @@
   <body>
     <!-- Sidebar -->
     <div id="sidebar">
-      <button id="profileButton" class="nav-button" data-section="profile">
-        Profile
-      </button>
-      <button id="buildingsButton" class="nav-button" data-section="buildings">
-        Buildings
-      </button>
-      <button id="troopsButton" class="nav-button" data-section="troops">
-        Troops
-      </button>
-      <button id="mapButton" class="nav-button" data-section="map">Map</button>
+      <button id="profileButton" data-localize="sidebar.profile"></button>
+      <button id="buildingsButton" data-localize="sidebar.buildings"></button>
+      <button id="troopsButton" data-localize="sidebar.troops"></button>
+      <button id="mapButton" data-localize="sidebar.map"></button>
     </div>
 
     <!-- Resource Bar -->
     <div id="resourceBar">
-      <span>Minerals: <span id="mineralAmount">0</span></span>
-      <span>Crystals: <span id="crystalAmount">0</span></span>
-      <span>Plasma: <span id="plasmaAmount">0</span></span>
-      <span>Hydrogen: <span id="hydrogenAmount">0</span></span>
-      <span>Energy: <span id="energyAmount">0</span></span>
+      <span data-localize="resources.energy"></span>:
+      <span id="energyAmount"></span>
+      <span data-localize="resources.minerals"></span>:
+      <span id="mineralsAmount"></span>
+      <span data-localize="resources.crystals"></span>:
+      <span id="crystalsAmount"></span>
+      <span data-localize="resources.hydrogen"></span>:
+      <span id="hydrogenAmount"></span>
+      <span data-localize="resources.population"></span>:
+      <span id="populationAmount"></span>
     </div>
 
     <!-- Main Content -->
@@ -44,89 +43,109 @@
       <div id="authContainer">
         <div id="authBackground">
           <form id="loginForm" style="display: none">
-            <h2>Login</h2>
+            <h2 data-localize="auth.login.title"></h2>
             <div class="form-group">
-              <label for="loginUsername">Username:</label>
+              <label
+                for="loginUsername"
+                data-localize="auth.login.username"
+              ></label>
               <input
                 type="text"
                 id="loginUsername"
-                placeholder="Enter username"
-                required
+                data-localize-placeholder="auth.login.username.placeholder"
               />
             </div>
             <div class="form-group">
-              <label for="loginPassword">Password:</label>
+              <label
+                for="loginPassword"
+                data-localize="auth.login.password"
+              ></label>
               <input
                 type="password"
                 id="loginPassword"
-                placeholder="Enter password"
-                required
+                data-localize-placeholder="auth.login.password.placeholder"
               />
             </div>
-            <button type="submit" class="btn" id="loginButton">Login</button>
+            <button
+              class="btn"
+              id="loginButton"
+              data-localize="auth.login.button"
+              type="submit"
+            ></button>
             <p class="toggle-form">
-              Don't have an account?
-              <button id="showRegisterForm">Register</button>
+              <span
+                id="showRegisterForm"
+                data-localize="auth.login.switch"
+              ></span>
             </p>
-            <p id="loginResult" class="result-message"></p>
           </form>
 
           <form id="registerForm">
-            <h2>Create a New User</h2>
+            <h2 data-localize="auth.register.title"></h2>
             <div class="form-group">
-              <label for="registerUsername">Username:</label>
+              <label
+                for="registerUsername"
+                data-localize="auth.register.username"
+              ></label>
               <input
                 type="text"
                 id="registerUsername"
-                placeholder="Enter username"
+                data-localize-placeholder="auth.register.username.placeholder"
               />
             </div>
             <div class="form-group">
-              <label for="registerEmail">Email:</label>
+              <label
+                for="registerEmail"
+                data-localize="auth.register.email"
+              ></label>
               <input
                 type="email"
                 id="registerEmail"
-                placeholder="Enter email"
+                data-localize-placeholder="auth.register.email.placeholder"
               />
             </div>
             <div class="form-group">
-              <label for="registerPassword">Password:</label>
+              <label
+                for="registerPassword"
+                data-localize="auth.register.password"
+              ></label>
               <input
                 type="password"
                 id="registerPassword"
-                placeholder="Enter password"
+                data-localize-placeholder="auth.register.password.placeholder"
               />
             </div>
+            <div id="roleSelect" class="form-group">
+              <label
+                for="registerRole"
+                data-localize="auth.register.role"
+              ></label>
+              <label
+                class="tooltiptext"
+                data-localize="auth.register.tooltip"
+              ></label>
 
-            <div id="role-carousel">
-              <h3>
-                Choose Your Origin
-                <div class="tooltip">
-                  &#x1F6C8;
-                  <span class="tooltiptext"
-                    >Your origin decides what your planet will excel at</span
-                  >
-                </div>
-              </h3>
-              <div class="carousel">
-                <button id="prevRole" class="carousel-nav">&lt;</button>
+              <div id="role-carousel" class="carousel">
+                <span id="prevRole" class="carousel-nav">◀</span>
                 <div class="carousel-content">
                   <!-- Roles dynamically populated -->
                 </div>
-                <button id="nextRole" class="carousel-nav">&gt;</button>
+                <span id="nextRole" class="carousel-nav">▶</span>
               </div>
               <div id="role-details">
-                <h4 id="role-name"></h4>
                 <p id="role-description"></p>
               </div>
             </div>
 
-            <button type="button" class="btn" id="registerButton">
-              Create User
-            </button>
+            <button
+              class="btn"
+              id="registerButton"
+              data-localize="auth.register.button"
+              type="submit"
+            ></button>
             <p class="toggle-form">
               Already have an account?
-              <button id="showLoginForm">Log In</button>
+              <span id="showLoginForm">Log In</span>
             </p>
           </form>
         </div>
@@ -134,7 +153,7 @@
 
       <!-- Profile View -->
       <div id="profile-view" class="view hidden">
-        <h2>Profile</h2>
+        <h2 data-localize="profile.title"></h2>
         <p id="player-name">Name:</p>
         <p id="player-role">Role:</p>
         <p id="player-progress">Building Progress:</p>
@@ -179,8 +198,11 @@
     </div>
 
     <!-- Scripts -->
+    <script src="js/localization.js" type="module"></script>
     <script src="js/game.js" type="module"></script>
     <script src="js/map.js" type="module"></script>
     <script src="js/ui.js" type="module"></script>
+    <script src="src/main.js" type="module"></script>
+    <script src="src/utils.js" type="module"></script>
   </body>
 </html>

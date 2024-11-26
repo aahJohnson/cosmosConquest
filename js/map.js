@@ -1,6 +1,16 @@
-import { buildings } from "../data/buildings.js";
-import { units } from "../data/units.js";
-import localization from "../data/localization.json";
+let localization;
+
+async function loadLocalization() {
+  const response = await fetch("../data/localization.json");
+  if (response.ok) {
+    localization = await response.json();
+    console.log("map.js localization loaded:", localization);
+  } else {
+    console.error("Failed to load localization file.");
+  }
+}
+
+loadLocalization();
 
 const MAP_SIZE = 1000; // Map size (1000x1000)
 let BASE_SECTOR_SIZE = 70; // Default sector size (zoom level 1)
