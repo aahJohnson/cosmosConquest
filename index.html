@@ -17,10 +17,26 @@
   <body>
     <!-- Sidebar -->
     <div id="sidebar">
-      <button id="profileButton" data-localize="sidebar.profile"></button>
-      <button id="buildingsButton" data-localize="sidebar.buildings"></button>
-      <button id="troopsButton" data-localize="sidebar.troops"></button>
-      <button id="mapButton" data-localize="sidebar.map"></button>
+      <button
+        id="profileButton"
+        class="sidebarButton"
+        data-localize="sidebar.profile"
+      ></button>
+      <button
+        id="buildingsButton"
+        class="sidebarButton"
+        data-localize="sidebar.buildings"
+      ></button>
+      <button
+        id="troopsButton"
+        class="sidebarButton"
+        data-localize="sidebar.troops"
+      ></button>
+      <button
+        id="mapButton"
+        class="sidebarButton"
+        data-localize="sidebar.map"
+      ></button>
     </div>
 
     <!-- Resource Bar -->
@@ -116,14 +132,8 @@
               />
             </div>
             <div id="roleSelect" class="form-group">
-              <label
-                for="registerRole"
-                data-localize="auth.register.role"
-              ></label>
-              <label
-                class="tooltiptext"
-                data-localize="auth.register.tooltip"
-              ></label>
+              <h3 for="registerRole" data-localize="auth.register.role"></h3>
+              <p class="tooltiptext" data-localize="auth.register.tooltip"></p>
 
               <div id="role-carousel" class="carousel">
                 <span id="prevRole" class="carousel-nav">◀</span>

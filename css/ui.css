@@ -139,7 +139,7 @@ select:focus {
 #roleSelect {
   text-align: center;
 }
-#roleSelect label {
+#roleSelect h3 {
   font-size: 1.2rem;
   color: #a020f0;
 }
@@ -248,21 +248,24 @@ select:focus {
   gap: 15px;
   margin-bottom: 20px;
 }
+
 #building-categories .category-btn {
   padding: 10px 15px;
-  background: red;
+  background: #333;
   color: #a020f0;
   font-weight: bold;
-  border-bottom: 5px solid white;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
   transition: background 0.3s ease;
 }
+
 #building-categories .category-btn:hover {
   transform: scale(1.03);
   box-shadow: 0 0 20px #1a1a1a;
 }
+
 #building-categories .category-btn.active {
   background: #8e24aa;
   color: #fff;
@@ -272,33 +275,35 @@ select:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  height: fit-content;
   margin-top: 20px;
   justify-content: center;
 }
+
 #buildings-list .building {
-  background: #222;
-  border: 1px solid #444;
-  padding: 15px;
-  border-radius: 8px;
   width: calc(25% - 20px);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  background-image: url("../media/buildings/refinery.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 1px -1px #b0b0b0;
+  border-radius: 8px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+
 #buildings-list .building h3 {
   color: #a020f0;
   font-size: 1.2rem;
   margin: 0 0 10px 0;
   text-shadow: 0 0 10px #a020f0;
 }
+
 #buildings-list .building p {
   color: #ddd;
   margin: 10px 0;
 }
-#buildings-list .building:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 20px #1a1a1a;
-}
+
 #buildings-list .building button {
   background: #6a0dad;
   box-shadow: 0 0 10px #6a0dad;
@@ -308,11 +313,13 @@ select:focus {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
-  transition: background 0.2s ease;
+  transition: transform 0.2s ease;
 }
+
 #buildings-list .building button:hover {
   background: #a020f0;
   box-shadow: 0 0 10px #a020f0;
+  transform: scale(1.05);
 }
 
 /* Troops */

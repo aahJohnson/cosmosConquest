@@ -39,7 +39,6 @@ async function initializeGameData() {
 
     // Call updateRoleDisplay only after data is loaded
     updateRoleDisplay();
-    renderBuildings(); // Initial render of buildings
   } catch (error) {
     console.error("Error loading game data:", error);
   }
@@ -239,12 +238,8 @@ document.addEventListener("DOMContentLoaded", () => {
     loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      console.log("here");
-
       const username = document.getElementById("loginUsername")?.value || "";
       const password = document.getElementById("loginPassword")?.value || "";
-
-      console.log({ username, password });
 
       try {
         const response = await fetch("http://localhost:5000/api/login", {
@@ -304,9 +299,6 @@ document.addEventListener("DOMContentLoaded", () => {
       renderBuildings(category);
     });
   });
-
-  // Initial render
-  renderBuildings();
 });
 
 // Function to set the active sidebar button
@@ -359,47 +351,60 @@ function loadProfilePage() {
 // Buildings page
 function loadBuildingsPage() {
   content.innerHTML = "";
-
   if (buildingsView) {
     // Append the buildings-view element to the content container
     content.appendChild(buildingsView);
-
     // Ensure it's visible
     buildingsView.classList.remove("hidden");
     buildingsView.classList.add("active");
-
     // Call renderBuildings to populate the buildings list
     renderBuildings();
   } else {
     console.error("Buildings view not found!");
   }
+  renderBuildings();
 }
 
 // Function to render buildings
 function renderBuildings(category = "Resource Management") {
-  const filteredBuildings = buildings.filter((b) => b.category === category);
+  // Normalize the category for comparison
+  const normalizedCategory = category.toLowerCase().replace(/\s+/g, "");
 
-  buildingsList.innerHTML = ""; // Clear previous content
+  const filteredBuildings = buildings.filter(
+    (b) => b.category.toLowerCase() === normalizedCategory
+  );
+
+  console.log("Filtered buildings:", filteredBuildings);
+
+  // Clear previous content
+  buildingsList.innerHTML = "";
+
+  if (!filteredBuildings.length) {
+    buildingsList.innerHTML = `<p>No buildings available in this category.</p>`;
+    return;
+  }
 
   filteredBuildings.forEach((building) => {
     const buildingDiv = document.createElement("div");
     buildingDiv.className = "building";
+    console.log("building image:" + building.image);
+    buildingDiv.style.backgroundImage = `url(${building.image})`;
+
     buildingDiv.innerHTML = `
-      <h3>${building.name}</h3>
-      <p>${building.description}</p>
-      <p>Level: ${building.level} / ${building.maxLevel}</p>
-      <button data-name="${building.name}">Upgrade</button>
+        <h3>${building.name}</h3>
+        <p>${building.description}</p>
+        <p>Level: ${building.level} / ${building.maxLevel}</p>
+        <button data-name="${building.name}">Upgrade</button>
     `;
     buildingsList.appendChild(buildingDiv);
   });
 }
 
 // Event listener for building upgrades
-buildingsView?.addEventListener("click", (e) => {
+buildingsView.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON" && e.target.dataset.name) {
     const buildingName = e.target.dataset.name;
     const building = buildings.find((b) => b.name === buildingName);
-
     if (building.level < building.maxLevel) {
       building.level++;
       renderBuildings(building.category); // Re-render the category

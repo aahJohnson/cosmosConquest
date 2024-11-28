@@ -138,7 +138,7 @@ select:focus {
 /* Role Carousel */
 #roleSelect {
   text-align: center;
-  label {
+  h3 {
     font-size: 1.2rem;
     color: $primary-purple;
   }
@@ -249,10 +249,8 @@ select:focus {
 }
 
 /* Buildings */
-#buildings-view {
-  h2 {
-    text-align: center;
-  }
+#buildings-view h2 {
+  text-align: center;
 }
 
 #building-categories {
@@ -260,81 +258,80 @@ select:focus {
   justify-content: center;
   gap: 15px;
   margin-bottom: 20px;
+}
 
-  .category-btn {
-    padding: 10px 15px;
-    background: red;
-    color: $primary-purple;
-    font-weight: bold;
-    border-bottom: 5px solid white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s ease;
+#building-categories .category-btn {
+  padding: 10px 15px;
+  background: #333;
+  color: #a020f0;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
 
-    &:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px $background-light;
-    }
+#building-categories .category-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #1a1a1a;
+}
 
-    &.active {
-      background: #8e24aa;
-      color: #fff;
-    }
-  }
+#building-categories .category-btn.active {
+  background: #8e24aa;
+  color: #fff;
 }
 
 #buildings-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  height: fit-content;
   margin-top: 20px;
   justify-content: center;
+}
 
-  .building {
-    background: #222;
-    border: 1px solid #444;
-    padding: 15px;
-    border-radius: 8px;
-    width: calc(25% - 20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+// .building
+#buildings-list .building {
+  width: calc(25% - 20px);
+  padding: 15px;
+  background-image: url("../media/buildings/refinery.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 1px -1px $text-muted;
+  border-radius: 8px;
+  text-align: center;
+}
 
-    h3 {
-      color: $primary-purple;
-      font-size: 1.2rem;
-      margin: 0 0 10px 0;
-      text-shadow: 0 0 10px $primary-purple;
-    }
+#buildings-list .building h3 {
+  color: #a020f0;
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 10px #a020f0;
+}
 
-    p {
-      color: #ddd;
-      margin: 10px 0;
-    }
+#buildings-list .building p {
+  color: #ddd;
+  margin: 10px 0;
+}
 
-    &:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px $background-light;
-    }
+#buildings-list .building button {
+  background: #6a0dad;
+  box-shadow: 0 0 10px #6a0dad;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
 
-    button {
-      background: $secondary-purple;
-      box-shadow: 0 0 10px $secondary-purple;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background 0.2s ease;
-
-      &:hover {
-        background: $primary-purple;
-        box-shadow: 0 0 10px $primary-purple;
-      }
-    }
-  }
+#buildings-list .building button:hover {
+  background: $primary-purple;
+  box-shadow: 0 0 10px $primary-purple;
+  transform: scale(1.05);
 }
 
 /* Troops */

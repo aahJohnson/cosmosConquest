@@ -25,7 +25,7 @@
     "auth.register.password": "Password",
     "auth.register.password.placeholder": "Enter your password",
     "auth.register.role": "Choose Your Planet",
-    "auth.register.tooltip": "Your origin decides what your planet will excel at",
+    "auth.register.tooltip": "Planets have different strengths and weaknesses",
     "auth.register.button": "Register",
     "auth.register.switch": "Already have an account? Log In",
     "profile.title": "Your Profile",
@@ -35,64 +35,6 @@
     "map.zoom.in": "Zoom In",
     "map.zoom.out": "Zoom Out",
 
-    "buildings": {
-      "refinery": {
-        "name": "Refinery",
-        "description": "Extracts and processes Minerals for construction and troops."
-      },
-      "crystalMine": {
-        "name": "Crystal Mine",
-        "description": "Harvests Crystals from beneath the surface."
-      },
-      "hydroPlant": {
-        "name": "Hydro Plant",
-        "description": "Generates Hydrogen for advanced constructions."
-      },
-      "mineralDepot": {
-        "name": "Mineral Depot",
-        "description": "Stores excess Minerals for future use."
-      },
-      "crystalStorage": {
-        "name": "Crystal Storage",
-        "description": "Secures Crystals for technological advancements."
-      },
-      "aquaTank": {
-        "name": "Aqua Tank",
-        "description": "Holds Hydrogen reserves for production and troops."
-      },
-      "solarArray": {
-        "name": "Solar Array",
-        "description": "Generates Energy to maintain buildings and troops."
-      },
-      "shipyard": {
-        "name": "Shipyard",
-        "description": "Constructs offensive ships for planetary conquest."
-      },
-      "satelliteFactory": {
-        "name": "Satellite Factory",
-        "description": "Manufactures defensive satellites to guard your planet."
-      },
-      "shieldGenerator": {
-        "name": "Shield Generator",
-        "description": "Projects a shield to protect your resources from attacks."
-      },
-      "turretNetwork": {
-        "name": "Turret Network",
-        "description": "Deploys stationary turrets for planetary defense."
-      },
-      "sensorTower": {
-        "name": "Sensor Tower",
-        "description": "Detects incoming fleets and provides tactical data."
-      },
-      "plasmaExtractor": {
-        "name": "Plasma Extractor",
-        "description": "Generates Plasma for research and advanced upgrades."
-      },
-      "researchLab": {
-        "name": "Research Lab",
-        "description": "Develops new technologies to enhance your operations."
-      }
-    },
     "categories": {
       "resourceManagement": "Resource Management",
       "troopHandling": "Troop Handling",
