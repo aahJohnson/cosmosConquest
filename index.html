@@ -162,11 +162,32 @@
       </div>
 
       <!-- Profile View -->
-      <div id="profile-view" class="view hidden">
-        <h2 data-localize="profile.title"></h2>
-        <p id="player-name">Name:</p>
-        <p id="player-role">Role:</p>
-        <p id="player-progress">Building Progress:</p>
+      <div id="profile-page">
+        <div class="profile-container">
+          <div class="planet-image">
+            <img
+              id="planet-image"
+              src="media/planets/defaultPlanet.webp"
+              alt="Planet"
+            />
+          </div>
+          <div class="profile-info">
+            <h2 id="player-name">Player Name</h2>
+            <div class="editable-field">
+              <label for="planet-name">Planet Name:</label>
+              <input
+                type="text"
+                id="planet-name"
+                placeholder="Enter your planet name"
+              />
+              <button id="save-planet-name">Save</button>
+            </div>
+            <p id="moons-count">Moons: 0</p>
+            <h3>Planet Benefits:</h3>
+            <ul id="planet-benefits"></ul>
+            <button id="edit-profile">Edit Profile</button>
+          </div>
+        </div>
       </div>
 
       <!-- Buildings View -->

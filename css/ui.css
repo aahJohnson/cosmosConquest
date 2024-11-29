@@ -17,24 +17,26 @@
   width: 100%;
   left: 0;
   top: 0;
-  background-color: rgba(15, 15, 15, 0.5);
+  background-image: url("../media/formBackground.webp");
+  background-size: cover;
+  background-position: center;
   z-index: 500;
 }
 
 /* Login & Register forms */
 form {
   position: absolute;
-  width: 80%;
+  width: 90%;
   max-width: 600px; /* Increase the width */
   top: 70px;
   left: 50%;
   transform: translateX(-50%);
   padding: 25px 30px; /* Add padding */
-  background: "#1c1c1c";
+  background-color: rgba(15, 15, 15, 0.9);
   border: 1px solid #333;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: #e0e0e0;
   font-family: "Orbitron", sans-serif; /* Futuristic font */
 }
 
@@ -217,24 +219,83 @@ select:focus {
 }
 
 /* Profile View */
-#profile-view {
+#profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding: 20px;
-  color: #ddd;
-  background: #111;
 }
 
-#profile-content {
-  margin-top: 20px;
+.profile-container {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-#profile-content p {
-  font-size: 1.2em;
-  margin: 10px 0;
+.planet-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
-#profile-content strong {
-  color: #a020f0; /* Highlight key labels */
-  text-shadow: 0 0 10px #a020f0;
+.profile-info {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.editable-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#planet-name {
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+#save-planet-name {
+  padding: 5px 10px;
+  border: none;
+  background: #6a0dad;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#save-planet-name:hover {
+  background: #8205d0;
+}
+
+#planet-benefits {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+#edit-profile {
+  background: #333;
+  border: 1px solid #6a0dad;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#edit-profile:hover {
+  background: #6a0dad;
 }
 
 /* Buildings */

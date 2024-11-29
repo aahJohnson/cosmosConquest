@@ -7,15 +7,27 @@ let buildings = [];
 let units = [];
 let currentRoleIndex = 0;
 
-const registerForm = document.getElementById("registerForm");
+// HTML Elements
+const content = document.getElementById("content");
+// Login Form
 const loginForm = document.getElementById("loginForm");
 const showLoginForm = document.getElementById("showLoginForm");
+const authBackground = document.querySelector("#authBackground");
+// Register Form
+const registerForm = document.getElementById("registerForm");
 const showRegisterForm = document.getElementById("showRegisterForm");
-const content = document.getElementById("content");
+const planetImage = document.getElementById("planet-image");
+// Profile Page
+const profilePage = document.getElementById("profile-page");
+const playerName = document.getElementById("player-name");
+const planetNameInput = document.getElementById("planet-name");
+const moonsCount = document.getElementById("moons-count");
+const planetBenefits = document.getElementById("planet-benefits");
+// Buildings Page
 const buildingsView = document.querySelector("#buildings-view");
 const buildingsList = document.getElementById("buildings-list");
+// Troops Page
 const troopsView = document.querySelector("#troops-view");
-const authBackground = document.querySelector("#authBackground");
 
 // Initialize all game data
 async function initializeGameData() {
@@ -341,11 +353,33 @@ function clearContent() {
 
 // Profile page
 function loadProfilePage() {
-  content.innerHTML = `
-      <h2>Profile of ${currentUser.username}</h2>
-      <p>Origin: ${currentUser.role}</p>
-      <p>Moons: ${currentUser.building_progress}</p>
-    `;
+  // Fetch player's data
+  const playerData = currentUser; // Assuming currentUser contains user data
+  const playerDataRole = playerData.role;
+  console.log("planetData: " + playerDataRole);
+  const planetData = localization.en.factions[playerDataRole].name; // Get planet details
+
+  // Update dynamic content
+  playerName.textContent = playerData.username;
+  planetImage.src = planetData.image;
+  planetNameInput.value = playerData.planetName || "My Planet";
+  moonsCount.textContent = `Moons: ${playerData.moons || 0}`;
+  planetBenefits.innerHTML = planetData.benefits
+    .map((benefit) => `<li>${benefit}</li>`)
+    .join("");
+
+  // Event listener to save planet name
+  document.getElementById("save-planet-name").addEventListener("click", () => {
+    const newPlanetName = planetNameInput.value;
+    if (newPlanetName) {
+      playerData.planetName = newPlanetName;
+      alert(`Planet name updated to ${newPlanetName}`);
+    }
+  });
+
+  // Show the profile page
+  content.innerHTML = "";
+  content.appendChild(profilePage);
 }
 
 // Buildings page
