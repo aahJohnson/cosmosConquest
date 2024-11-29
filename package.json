@@ -4,5 +4,8 @@
   },
   "scripts": {
     "scss": "sass --watch scss:css"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.46.2"
   }
 }

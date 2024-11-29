@@ -17,7 +17,7 @@
   width: 100%;
   left: 0;
   top: 0;
-  background-image: url("../media/formBackground.webp");
+  background-image: url("../media/backgrounds/formBackground.webp");
   background-size: cover;
   background-position: center;
   z-index: 500;
@@ -28,7 +28,7 @@ form {
   position: absolute;
   width: 90%;
   max-width: 600px; /* Increase the width */
-  top: 70px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   padding: 25px 30px; /* Add padding */

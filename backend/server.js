@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const { Pool } = require("pg");
+const { createClient } = require("@supabase/supabase-js");
 
 const app = express();
 const PORT = 5000;
@@ -12,27 +12,17 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Database Connection
-const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-});
+// Initialize Supabase Client
+const supabaseUrl = process.env.SUPABASE_URL; // From your Supabase settings
+const supabaseKey = process.env.SUPABASE_KEY; // Anon or service key
+const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Test Database Connection
-pool.connect((err) => {
-  if (err) {
-    console.error("Database connection error:", err.stack);
-  } else {
-    console.log("Connected to the PostgreSQL database");
-  }
-});
+console.log("Supabase URL:", process.env.SUPABASE_URL);
+console.log("Supabase Key:", process.env.SUPABASE_KEY);
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Backend for Cosmos Conquest is running!");
+  res.send("Backend for OuterSide is running!");
 });
 
 // Create a New User
@@ -41,24 +31,26 @@ app.post("/api/users", async (req, res) => {
 
   try {
     // Check if the username or email already exists
-    const existingUser = await pool.query(
-      "SELECT * FROM users WHERE username = $1 OR email = $2",
-      [username, email]
-    );
+    const { data: existingUser, error: fetchError } = await supabase
+      .from("users")
+      .select("*")
+      .or(`username.eq.${username},email.eq.${email}`);
 
-    if (existingUser.rows.length > 0) {
+    if (fetchError) throw fetchError;
+    if (existingUser.length > 0) {
       return res
         .status(400)
         .json({ error: "Username or email already exists" });
     }
 
     // Insert the new user
-    const result = await pool.query(
-      "INSERT INTO users (username, email, password, role) VALUES ($1, $2, $3, $4) RETURNING *",
-      [username, email, password, role]
-    );
+    const { data, error } = await supabase
+      .from("users")
+      .insert([{ username, email, password, planet_type: role }]);
 
-    res.status(201).json(result.rows[0]);
+    if (error) throw error;
+
+    res.status(201).json(data[0]);
   } catch (err) {
     console.error("Error creating user:", err);
     res.status(500).json({ error: "Failed to create user" });
@@ -70,18 +62,14 @@ app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    // Check if the user exists
-    const result = await pool.query("SELECT * FROM users WHERE username = $1", [
-      username,
-    ]);
+    // Fetch user by username
+    const { data: user, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("username", username)
+      .single();
 
-    if (result.rows.length === 0) {
-      return res.status(400).json({ error: "Invalid username or password" });
-    }
-
-    // Validate password (in plain text for now)
-    const user = result.rows[0];
-    if (user.password !== password) {
+    if (error || !user || user.password !== password) {
       return res.status(400).json({ error: "Invalid username or password" });
     }
 
@@ -89,8 +77,7 @@ app.post("/api/login", async (req, res) => {
     res.status(200).json({
       id: user.id,
       username: user.username,
-      role: user.role,
-      building_progress: user.building_progress,
+      planet_type: user.planet_type,
     });
   } catch (err) {
     console.error("Error during login:", err);
@@ -103,16 +90,40 @@ app.get("/api/users/:id", async (req, res) => {
   const userId = req.params.id;
 
   try {
-    const result = await pool.query("SELECT * FROM users WHERE id = $1", [
-      userId,
-    ]);
-    if (result.rows.length === 0) {
+    const { data: user, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("id", userId)
+      .single();
+
+    if (error || !user) {
       return res.status(404).json({ error: "User not found" });
     }
-    res.json(result.rows[0]);
+
+    res.json(user);
   } catch (err) {
     console.error("Error fetching user:", err);
     res.status(500).json({ error: "Failed to fetch user" });
+  }
+});
+
+// Update Resources (Optional Logic for Future Use)
+app.put("/api/users/:id/resources", async (req, res) => {
+  const userId = req.params.id;
+  const { minerals, crystals, hydrogen, plasma, energy } = req.body;
+
+  try {
+    const { data, error } = await supabase
+      .from("resources")
+      .update({ minerals, crystals, hydrogen, plasma, energy })
+      .eq("user_id", userId);
+
+    if (error) throw error;
+
+    res.json(data[0]);
+  } catch (err) {
+    console.error("Error updating resources:", err);
+    res.status(500).json({ error: "Failed to update resources" });
   }
 });
 
