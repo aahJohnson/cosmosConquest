@@ -20,44 +20,47 @@ body {
   background: $background-light;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 80px 0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.7);
-  z-index: 101;
+  z-index: 99;
 }
 
 #sidebar button {
-  background: #333;
-  color: $text-light;
+  width: 100%;
+  background: $background-dark;
+  color: $bright-orange;
   border: none;
   margin: 10px 0;
   padding: 12px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 5px;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 #sidebar button:hover {
-  background: $primary-purple;
-  color: $text-dark;
-  box-shadow: 0 0 10px $primary-purple;
-  transform: scale(1.05);
+  box-shadow: 5px 0 5px -5px $bright-orange;
 }
 
 #sidebar button.active {
-  background: $primary-purple; /* Highlighted background */
+  background: $bright-orange; /* Highlighted background */
   color: #000; /* Text color when active */
   font-weight: bold; /* Make it stand out */
-  box-shadow: 0 0 10px $primary-purple; /* Add glow effect */
+  box-shadow: 0 0 10px $bright-orange; /* Add glow effect */
+}
+
+#sidebar span {
+  margin: 5% 15%;
+  border-top: 1px solid $dark-orange;
+  box-shadow: 0 0 10px $dark-orange;
 }
 
 /* Resource Bar Styling */
 #resourceBar {
   position: fixed;
   top: 0;
-  left: 220px;
+  left: 0;
   right: 0;
   height: 60px;
   background: $background-light;
@@ -70,8 +73,8 @@ body {
 
 #resourceBar span {
   font-size: 18px;
-  color: $primary-purple;
-  text-shadow: 0 0 10px $primary-purple;
+  color: $bright-orange;
+  text-shadow: 0 0 10px $bright-orange;
 }
 
 .hidden {

@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+h2 {
+  color: #e0e0e0;
+  text-align: center;
+}
+
 /* General Form Styling */
 #authBackground {
   position: absolute;
@@ -26,15 +31,16 @@
 /* Login & Register forms */
 form {
   position: absolute;
+  height: 100%;
   width: 90%;
   max-width: 600px; /* Increase the width */
-  top: 20px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   padding: 25px 30px; /* Add padding */
   background-color: rgba(15, 15, 15, 0.9);
-  border: 1px solid #333;
-  border-radius: 8px;
+  border-left: 1px solid #3d3d3d;
+  border-right: 1px solid #3d3d3d;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
   color: #e0e0e0;
   font-family: "Orbitron", sans-serif; /* Futuristic font */
@@ -44,8 +50,8 @@ form h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 26px;
-  color: #a020f0;
-  text-shadow: 0 0 15px #a020f0;
+  color: #ffa500;
+  text-shadow: 0 0 15px #ffa500;
 }
 
 .form-group {
@@ -58,7 +64,7 @@ form h2 {
   margin-left: 50%;
   transform: translateX(-77.5%);
   font-size: 14px;
-  color: #ccc;
+  color: #e0e0e0;
 }
 
 .form-group input,
@@ -71,17 +77,17 @@ form h2 {
   font-size: 16px;
   border: 1px solid #333;
   border-radius: 4px;
-  background: #222;
-  color: white;
+  background: #1a1a1a;
+  color: #e0e0e0;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
   transition: border 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #a020f0;
+  border-color: #ffa500;
   outline: none;
-  box-shadow: 0 0 10px #a020f0;
+  box-shadow: 0 0 10px #ffa500;
 }
 
 .btn {
@@ -89,7 +95,7 @@ form h2 {
   padding: 12px;
   font-size: 18px;
   color: white;
-  background: #6a0dad;
+  background: #cc8400;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -98,9 +104,9 @@ form h2 {
 }
 
 .btn:hover {
-  background: #a020f0;
+  background: #ffa500;
   transform: scale(1.05);
-  box-shadow: 0 0 15px #a020f0;
+  box-shadow: 0 0 15px #ffa500;
 }
 
 /* Toggle Form Links */
@@ -114,27 +120,27 @@ form h2 {
 .toggle-form span {
   background: none;
   border: none;
-  color: #6a0dad;
+  color: #cc8400;
   cursor: pointer;
-  border-bottom: 1px solid #6a0dad;
+  border-bottom: 1px solid #cc8400;
   font-size: 14px;
 }
 
 .toggle-form button:hover {
-  color: #a020f0;
+  color: #ffa500;
 }
 
 /* Login/Register Form Glows */
 form h2,
 .toggle-form button:hover {
-  text-shadow: 0 0 15px #a020f0;
+  text-shadow: 0 0 15px #ffa500;
 }
 
 /* Consistent Form Input Glow */
 input:focus,
 select:focus {
-  border: 1px solid #a020f0;
-  box-shadow: 0 0 10px #a020f0;
+  border: 1px solid #ffa500;
+  box-shadow: 0 0 10px #ffa500;
 }
 
 /* Role Carousel */
@@ -143,10 +149,10 @@ select:focus {
 }
 #roleSelect h3 {
   font-size: 1.2rem;
-  color: #a020f0;
+  color: #ffa500;
 }
 
-#role-description {
+#role-description1 {
   padding-top: 20px;
 }
 
@@ -161,11 +167,11 @@ select:focus {
 #role-carousel h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  color: #6a0dad; /* Cool sci-fi color for the header */
+  color: #cc8400; /* Cool sci-fi color for the header */
 }
 #role-carousel .carousel-nav {
   background: transparent;
-  color: #a020f0;
+  color: #ffa500;
   padding: 10px;
   cursor: pointer;
   border: none;
@@ -197,13 +203,13 @@ select:focus {
   object-fit: contain;
 }
 #role-carousel .role-card h4 {
-  color: #a020f0;
+  color: #ffa500;
   font-size: 1rem;
   margin: 10px 0 5px 0;
 }
 #role-carousel .role-card p {
   font-size: 0.8rem;
-  color: #ddd;
+  color: #e0e0e0;
   margin: 0;
 }
 #role-carousel #role-details {
@@ -211,7 +217,7 @@ select:focus {
 }
 #role-carousel #role-details h4 {
   font-size: 1.4rem;
-  color: #a020f0;
+  color: #ffa500;
 }
 #role-carousel #role-details p {
   font-size: 1rem;
@@ -299,10 +305,6 @@ select:focus {
 }
 
 /* Buildings */
-#buildings-view h2 {
-  text-align: center;
-}
-
 #building-categories {
   display: flex;
   justify-content: center;
@@ -378,8 +380,8 @@ select:focus {
 }
 
 #buildings-list .building button:hover {
-  background: #a020f0;
-  box-shadow: 0 0 10px #a020f0;
+  background: #ffa500;
+  box-shadow: 0 0 10px #ffa500;
   transform: scale(1.05);
 }
 

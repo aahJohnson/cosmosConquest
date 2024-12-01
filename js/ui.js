@@ -95,8 +95,12 @@ async function updateRoleDisplay() {
 
   // Update role details
 
-  document.getElementById("role-description").textContent =
-    currentRole.description;
+  document.getElementById("role-description1").textContent =
+    "+ " + currentRole.description1;
+  document.getElementById("role-description2").textContent =
+    "+ " + currentRole.description2;
+  document.getElementById("role-description3").textContent =
+    "- " + currentRole.description3;
 
   // Clear existing carousel content
   carouselContent.innerHTML = "";
@@ -127,8 +131,8 @@ async function updateRoleDisplay() {
 
     if (index === 1) {
       roleName.style.fontSize = "1.2rem";
-      roleName.style.color = "#a020f0";
-      roleName.style.textShadow = "0 0 15px #a020f0";
+      roleName.style.color = "#cc8400";
+      roleName.style.textShadow = "0 0 15px #cc8400";
     }
 
     roleCard.appendChild(img);

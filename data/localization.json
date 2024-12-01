@@ -1,15 +1,19 @@
 {
   "en": {
     "app.title": "OuterSide.io",
+
     "sidebar.profile": "Profile",
     "sidebar.buildings": "Buildings",
     "sidebar.troops": "Troops",
+    "sidebar.research": "Research",
     "sidebar.map": "Map",
-    "resources.energy": "Energy",
+
     "resources.minerals": "Minerals",
     "resources.crystals": "Crystals",
     "resources.hydrogen": "Hydrogen",
-    "resources.population": "Settlers",
+    "resources.plasma": "Plasma",
+    "resources.energy": "Energy",
+
     "auth.login.title": "Log In",
     "auth.login.username": "Username",
     "auth.login.username.placeholder": "Enter your username",
@@ -28,6 +32,7 @@
     "auth.register.tooltip": "Planets have different strengths and weaknesses",
     "auth.register.button": "Register",
     "auth.register.switch": "Already have an account? Log In",
+
     "profile.title": "Your Profile",
     "buildings.title": "Buildings Overview",
     "troops.title": "Troop Management",
@@ -42,55 +47,40 @@
       "research": "Research"
     },
     "factions": {
-      "gas": {
-        "name": "Gas",
-        "description": "Strategists excelling in guerrilla tactics and hidden bases.",
-        "image": "../media/planets/gasPlanet.webp",
-        "benefits": [
-          "High Energy production efficiency",
-          "Hidden base mechanics for added security",
-          "Fast troop recovery in combat"
-        ]
-      },
       "ice": {
         "name": "Ice",
-        "description": "Strong on diplomacy and trade.",
-        "image": "../media/planets/icePlanet.webp",
-        "benefits": [
-          "Bonus trade efficiency with allies",
-          "Higher defense capabilities",
-          "Cheaper defensive unit production"
-        ]
+        "description1": "Faster crystal gathering",
+        "description2": "Strong defensive power",
+        "description3": "Lacking in offensive power",
+        "image": "../media/planets/icePlanet.webp"
       },
       "volcanic": {
         "name": "Volcanic",
-        "description": "Balanced approach to defense, resource gathering, and technology.",
-        "image": "../media/planets/volcanicPlanet.webp",
-        "benefits": [
-          "Boost to overall resource production",
-          "Increased technology research speed",
-          "Moderate offensive and defensive unit bonuses"
-        ]
-      },
-      "rocky": {
-        "name": "Rocky",
-        "description": "High focus on energy production and troop strength.",
-        "image": "../media/planets/rockyPlanet.webp",
-        "benefits": [
-          "Efficient Energy and Mineral production",
-          "Cheaper offensive unit construction",
-          "High troop strength for planetary conquests"
-        ]
+        "description1": "Quicker energy generation",
+        "description2": "Strong offensive power",
+        "description3": "Lacking in defensive power",
+        "image": "../media/planets/volcanicPlanet.webp"
       },
       "ocean": {
         "name": "Ocean",
-        "description": "Immense strength in defense and resource extraction.",
-        "image": "../media/planets/oceanPlanet.webp",
-        "benefits": [
-          "Enhanced resource storage capacities",
-          "Strong defensive unit production",
-          "Bonus resource extraction efficiency"
-        ]
+        "description1": "Faster hydrogen gathering",
+        "description2": "Good offensive and defensive power",
+        "description3": "Lacks specialized units",
+        "image": "../media/planets/oceanPlanet.webp"
+      },
+      "gas": {
+        "name": "Gas",
+        "description1": "Quicker plasma generation",
+        "description2": "Strong defence",
+        "description3": "Lacking in offensive power",
+        "image": "../media/planets/gasPlanet.webp"
+      },
+      "rocky": {
+        "name": "Rocky",
+        "description1": "Stronger at mineral mining",
+        "description2": "Strong offensive power",
+        "description3": "Lacking in defensive power",
+        "image": "../media/planets/rockyPlanet.webp"
       }
     }
   }

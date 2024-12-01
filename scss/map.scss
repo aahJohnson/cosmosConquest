@@ -80,7 +80,7 @@ body {
   padding: 8px 15px;
   border-radius: 5px;
   font-size: 14px;
-  text-shadow: 0 0 10px $primary-purple;
+  text-shadow: 0 0 10px $bright-orange;
   z-index: 1000; /* Ensure it is always above other elements */
 }
 
@@ -107,8 +107,8 @@ body {
 }
 
 #zoom-controls button:hover {
-  background: $primary-purple;
+  background: $bright-orange;
   color: $text-dark;
-  box-shadow: 0 0 15px $primary-purple;
+  box-shadow: 0 0 15px $bright-orange;
   transform: scale(1.05);
 }

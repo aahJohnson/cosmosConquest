@@ -4,7 +4,7 @@
 body {
   font-family: "Orbitron", sans-serif; /* Futuristic font */
   background: #121212; /* Dark background for contrast */
-  color: #e0e0e0; /* Light text for readability */
+  color: $text-light; /* Light text for readability */
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -20,44 +20,47 @@ body {
   background: #1a1a1a;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 80px 0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.7);
-  z-index: 101;
+  z-index: 99;
 }
 
 #sidebar button {
-  background: #333;
-  color: #e0e0e0;
+  width: 100%;
+  background: #121212;
+  color: #ffa500;
   border: none;
   margin: 10px 0;
   padding: 12px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 5px;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 #sidebar button:hover {
-  background: #a020f0;
-  color: "#1c1c1c";
-  box-shadow: 0 0 10px #a020f0;
-  transform: scale(1.05);
+  box-shadow: 5px 0 5px -5px #ffa500;
 }
 
 #sidebar button.active {
-  background: #a020f0; /* Highlighted background */
+  background: #ffa500; /* Highlighted background */
   color: #000; /* Text color when active */
   font-weight: bold; /* Make it stand out */
-  box-shadow: 0 0 10px #a020f0; /* Add glow effect */
+  box-shadow: 0 0 10px #ffa500; /* Add glow effect */
+}
+
+#sidebar span {
+  margin: 5% 15%;
+  border-top: 1px solid #cc8400;
+  box-shadow: 0 0 10px #cc8400;
 }
 
 /* Resource Bar Styling */
 #resourceBar {
   position: fixed;
   top: 0;
-  left: 220px;
+  left: 0;
   right: 0;
   height: 60px;
   background: #1a1a1a;
@@ -70,8 +73,8 @@ body {
 
 #resourceBar span {
   font-size: 18px;
-  color: #a020f0;
-  text-shadow: 0 0 10px #a020f0;
+  color: #ffa500;
+  text-shadow: 0 0 10px #ffa500;
 }
 
 .hidden {

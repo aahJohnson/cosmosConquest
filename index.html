@@ -22,6 +22,7 @@
         class="sidebarButton"
         data-localize="sidebar.profile"
       ></button>
+      <span></span>
       <button
         id="buildingsButton"
         class="sidebarButton"
@@ -33,6 +34,12 @@
         data-localize="sidebar.troops"
       ></button>
       <button
+        id="researchButton"
+        class="sidebarButton"
+        data-localize="sidebar.research"
+      ></button>
+      <span></span>
+      <button
         id="mapButton"
         class="sidebarButton"
         data-localize="sidebar.map"
@@ -41,16 +48,16 @@
 
     <!-- Resource Bar -->
     <div id="resourceBar">
-      <span data-localize="resources.energy"></span>:
-      <span id="energyAmount"></span>
       <span data-localize="resources.minerals"></span>:
       <span id="mineralsAmount"></span>
       <span data-localize="resources.crystals"></span>:
       <span id="crystalsAmount"></span>
       <span data-localize="resources.hydrogen"></span>:
       <span id="hydrogenAmount"></span>
-      <span data-localize="resources.population"></span>:
-      <span id="populationAmount"></span>
+      <span data-localize="resources.plasma"></span>:
+      <span id="plasmaAmount"></span>
+      <span data-localize="resources.energy"></span>:
+      <span id="energyAmount"></span>
     </div>
 
     <!-- Main Content -->
@@ -143,7 +150,9 @@
                 <span id="nextRole" class="carousel-nav">▶</span>
               </div>
               <div id="role-details">
-                <p id="role-description"></p>
+                <p id="role-description1"></p>
+                <p id="role-description2"></p>
+                <p id="role-description3"></p>
               </div>
             </div>
 

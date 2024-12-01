@@ -13,7 +13,10 @@ body {
 /* Map Styling */
 #map {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 12px); /* Dynamically create columns */
+  grid-template-columns: repeat(
+    auto-fill,
+    12px
+  ); /* Dynamically create columns */
   grid-template-rows: repeat(auto-fill, 12px); /* Dynamically create rows */
   gap: 1px; /* Optional gap between sectors */
   width: 100%; /* Ensure it fills its parent container */
@@ -73,11 +76,11 @@ body {
   bottom: 80px;
   right: 20px;
   background: #1f1f1f;
-  color: #e0e0e0;
+  color: $text-light;
   padding: 8px 15px;
   border-radius: 5px;
   font-size: 14px;
-  text-shadow: 0 0 10px #a020f0;
+  text-shadow: 0 0 10px #ffa500;
   z-index: 1000; /* Ensure it is always above other elements */
 }
 
@@ -91,7 +94,7 @@ body {
 
 #zoom-controls button {
   background: #333;
-  color: #e0e0e0;
+  color: $text-light;
   border: none;
   margin: 10px 0;
   padding: 12px;
@@ -104,9 +107,9 @@ body {
 }
 
 #zoom-controls button:hover {
-  background: #a020f0;
+  background: #ffa500;
   color: "#1c1c1c";
-  box-shadow: 0 0 15px #a020f0;
+  box-shadow: 0 0 15px #ffa500;
   transform: scale(1.05);
 }
 
